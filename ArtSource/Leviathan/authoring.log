@@ -1,0 +1,10 @@
+C:\Users\Vlad\Documents\ChatGPT\Jem 11\ArtSource\Leviathan\author_leviathan.py:24: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat.use_nodes = True
+Информация: Сохранено как "Leviathan.blend"
+
+FBX export starting... 'C:\\Users\\Vlad\\Documents\\ChatGPT\\Jem 11\\Lighthouse\\Assets\\Art\\Leviathan\\Leviathan.fbx'
+export finished in 0.1188 sec.
+LEVIATHAN_AUTHORING_COMPLETE {'identity': 'Original abyssal sea serpent; no external model', 'length_metres': 192, 'spine_metres': 156, 'runtime': '27-bone arc-length skinning; one 23-second breach', 'materials': ['Leviathan_Skin', 'Leviathan_Belly', 'Leviathan_Ridge', 'Leviathan_Bone', 'Leviathan_Mouth', 'Leviathan_Glow'], 'vertices': 8802}
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

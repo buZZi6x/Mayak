@@ -1,0 +1,18 @@
+{
+  "retrievedOn": "2026-11-14",
+  "title": "Cthulhu growl.wav",
+  "author": "cylon8472",
+  "sourceUrl": "https://freesound.org/people/cylon8472/sounds/249686/",
+  "downloadUrl": "https://cdn.freesound.org/previews/249/249686_3415022-hq.mp3",
+  "license": "Creative Commons Attribution 4.0 International",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "recordingEvidence": "The author describes recording a vocal growl into a microphone and processing it in Audacity. Published 2014-09-23.",
+  "representation": "Full-duration public HQ MP3 preview; the original WAV requires a Freesound account and was not downloaded.",
+  "sourceFile": "Cylon8472_CthulhuGrowl_HQPreview.mp3",
+  "sha256": "03bdfceace923a2cefbae9b0cf61b5f310c720c181f0bda4d51f0947d99d7503",
+  "runtimeFile": "Lighthouse/Assets/Art/Leviathan/Audio/Leviathan_Roar.wav",
+  "processing": "Remove first 0.05 s; playback-rate pitch shift to 85%; resample 48 kHz mono; 38 Hz high-pass and 6 kHz low-pass; +3 dB around 140 Hz; 0.10 s fade-in, 1 s fade-out; loudness normalization -18 LUFS, -3 dBTP target. No generated voice or oscillator layer.",
+  "runtimeDurationSeconds": 11.146958,
+  "subjectiveAudition": "Agent selection uses author provenance, duration, source suitability and measured signal data. Human subjective listening remains the final check.",
+  "credit": "Cthulhu growl.wav by cylon8472, Freesound, CC BY 4.0. Adapted for Lighthouse: pitch, EQ, fades, loudness and mono conversion."
+}

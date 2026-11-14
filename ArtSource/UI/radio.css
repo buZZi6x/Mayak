@@ -1,0 +1,23 @@
+.radio-dialog { width: min(560px, calc(100vw - 32px)); max-height: calc(100dvh - 32px); overflow: auto; padding: 30px; border: 1px solid #697776; border-radius: 0; background: #111c20f5; color: #ede9de; box-shadow: 0 22px 100px #0009; font-family: Commissioner, sans-serif; }
+.radio-dialog::backdrop { background: #060f15a6; }
+.radio-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:24px; }
+.radio-header h2 { font: 500 32px 'Cormorant Garamond',serif; margin:0; }
+.radio-close { width:36px; height:36px; border:1px solid #52605f; background:transparent; color:inherit; font-size:24px; cursor:pointer; }
+.radio-frequency { display:flex; align-items:baseline; gap:8px; font-variant-numeric:tabular-nums; }
+.radio-frequency output { font-size:50px; font-weight:450; line-height:1; color:#e3b77a; }
+.radio-frequency span { font-size:12px; color:#a3b2b2; }
+.radio-station { margin:12px 0 24px; min-height:20px; font-size:14px; color:#c3cecb; }
+.radio-scale { position:relative; padding:0 0 20px; }
+.radio-scale::before { content:''; display:block; height:24px; background:repeating-linear-gradient(90deg,#7a8b844d 0 1px,transparent 1px 2.5%); border-bottom:1px solid #70817a6b; }
+.radio-marks { display:flex; justify-content:space-between; margin-top:9px; color:#a6b7b0; font-size:11px; }
+.radio-wave { position:absolute; inset:0 0 auto; width:100%; height:28px; margin:0; appearance:none; background:transparent; cursor:ew-resize; }
+.radio-wave::-webkit-slider-thumb { appearance:none; width:3px; height:32px; border:0; background:#efbb77; box-shadow:0 0 7px #efa95442; }
+.radio-wave::-moz-range-thumb { width:3px; height:32px; border:0; border-radius:0; background:#efbb77; }
+.radio-power { display:flex; gap:12px; margin-top:15px; }
+.radio-power button { flex:1; min-height:45px; border:1px solid #66756f; background:transparent; color:#d4ddd6; font:500 15px Commissioner,sans-serif; cursor:pointer; border-radius:0; }
+.radio-power button[aria-pressed=true] { border-color:#d9af76; color:#f4d7ae; background:#d1a16516; }
+.radio-power button:hover,.radio-close:hover { background:#ffffff10; }
+.radio-dialog :focus-visible { outline:2px solid #efc087; outline-offset:5px; }
+.radio-dialog[data-powered=false] .radio-frequency output { color:#788782; }
+.radio-transcript { min-height:66px; margin:24px 0 0; color:#b9c9c6; font-size:13px; line-height:1.7; }
+@media(max-width:500px) { .radio-dialog {padding:22px;} .radio-transcript {font-size:12px;} }

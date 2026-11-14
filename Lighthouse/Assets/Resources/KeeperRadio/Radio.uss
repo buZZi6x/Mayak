@@ -1,0 +1,29 @@
+.radio-overlay { position:absolute; left:0; top:0; right:0; bottom:0; background-color:rgb(9,12,12); display:none; }
+.radio-stage { position:absolute; }
+.radio-plate { position:absolute; left:0; top:0; width:100%; height:100%; }
+.radio-close { position:absolute; top:2.6%; right:1.8%; width:3%; height:5.3%; min-width:36px; min-height:36px; padding:0; margin:0; border-width:0; background-color:rgba(0,0,0,0); color:rgb(213,184,139); -unity-text-align:middle-center; }
+.radio-close:hover {color:rgb(255,240,212);}
+.radio-station { position:absolute; left:43.6%; top:48.5%; width:23.5%; height:4%; margin:0; padding:0; color:rgb(56,34,15); -unity-text-align:middle-center; -unity-font-style:bold; }
+.radio-frequency { position:absolute; left:43.6%; top:53%; width:23.5%; height:4%; margin:0; padding:0; color:rgb(56,34,15); -unity-text-align:middle-center; -unity-font-style:bold; }
+.radio-wave { position:absolute; left:44%; top:29.8%; width:34.65%; height:14.3%; margin:0; padding:0; }
+.radio-wave .unity-base-slider__input { margin:0; padding:0; border-width:0; background-color:rgba(0,0,0,0); }
+.radio-wave .unity-base-slider__tracker {display:none;}
+.radio-wave .unity-base-slider__dragger {width:3px;height:100%;top:0;margin:0;border-width:0;border-radius:0;background-color:rgb(165,76,5);}
+.radio-wave .unity-base-slider__dragger-border {display:none;}
+.radio-power {position:absolute;top:63.4%;height:7.5%;padding:0;margin:0;border-width:0;border-radius:0;background-color:rgba(0,0,0,0);color:rgb(56,34,15);-unity-font-style:bold;-unity-text-align:middle-center;}
+.radio-on {left:19.2%;width:9.8%;padding-left:2%;}
+.radio-off {left:30.9%;width:8.6%;}
+.radio-power:hover {background-color:rgba(255,230,165,.1);}
+.radio-power:active {background-color:rgba(37,24,7,.23);}
+.radio-led {position:absolute;left:20.3%;top:65.8%;width:1.5%;height:2.666%;border-radius:100%;background-color:rgb(255,229,115);border-width:2px;border-color:rgb(234,148,33);}
+.radio-knob {position:absolute;left:70.85%;top:50.05%;width:12.5%;height:22.21%;border-width:0;background-color:rgba(0,0,0,0);}
+.radio-knob-rotor {position:absolute;left:0;top:0;right:0;bottom:0;}
+.radio-knob-mark {position:absolute;top:10%;left:48.7%;width:3.7%;height:16%;background-color:rgb(219,208,165);}
+.radio-transcript {position:absolute;left:16%;top:85.3%;width:68%;height:12%;margin:0;padding:0;white-space:normal;-unity-text-align:upper-center;color:rgb(250,224,181);text-shadow:0 2px 4px rgba(0,0,0,.9);}
+.radio-music {position:absolute;left:42.8%;top:78.5%;width:30%;height:4%;margin:0;padding:0;-unity-text-align:middle-center;color:rgb(229,208,173);text-shadow:0 1px 4px black;}
+.radio-overlay.off .radio-led {display:none;}
+.radio-overlay.off .radio-station,.radio-overlay.off .radio-frequency {opacity:.65;}
+.radio-knob:focus,.radio-knob:hover,.radio-knob:active {border-width:0;}
+.radio-power:focus {border-width:1px;border-color:rgba(255,240,190,.65);}
+.radio-wave:focus,.radio-wave:hover,.radio-wave:active {border-width:0;background-color:rgba(0,0,0,0);}
+.radio-wave .unity-base-slider__input:focus,.radio-wave .unity-base-slider__input:hover {border-width:0;background-color:rgba(0,0,0,0);}

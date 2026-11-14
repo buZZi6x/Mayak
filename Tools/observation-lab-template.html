@@ -1,0 +1,36 @@
+<!doctype html><html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Морские явления · motion study V02</title>
+<style>body{margin:0;background:#09121d;color:#dbe7e9;font:15px system-ui;padding:24px}#lh-observation-lab{max-width:1200px;margin:auto}.viz-controls{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin:18px 0}label{display:flex;gap:10px;align-items:center}select,button{background:#152c37;border:1px solid #46616d;border-radius:6px;color:inherit;padding:9px;max-width:100%}h1{font-size:23px;margin:0}p,.text-small{color:#93b3bc;line-height:1.5}canvas{background:linear-gradient(#060d17 0%,#132a3c 54%,#36515a 56%,#112630 57%,#07131e 100%);border:1px solid #28414c;border-radius:10px;box-sizing:border-box}@media(max-width:500px){body{padding:12px}label{flex-wrap:wrap}select{max-width:280px}}</style>
+<div id="lh-observation-lab"><h1>Не дай погаснуть · морские явления</h1><p>Эскиз движения и формы. Геометрия, фазы и маски общие с Unity; финальное освещение, HDRP-волны и атмосферу проверяем в игре.</p>
+  <div class="viz-controls">
+    <label class="form-label">Наблюдение <select class="form-select" id="lh-event"></select></label>
+    <button class="btn" type="button" id="lh-play">Пауза</button>
+    <label class="form-label">Фаза <input class="form-range" id="lh-phase" type="range" min="0" max="30" step="0.05" value="4"></label>
+  </div>
+  <canvas aria-label="Анимированный эскиз наблюдения над морским горизонтом" role="img" style="display:block;width:100%;aspect-ratio:16/9"></canvas>
+  <div class="text-small" id="lh-detail" aria-live="polite"></div>
+</div>
+<script>
+(()=>{'use strict';
+const root=document.getElementById('lh-observation-lab'),cv=root.querySelector('canvas'),sel=root.querySelector('select'),play=root.querySelector('button'),range=root.querySelector('input'),detail=root.querySelector('#lh-detail');
+const catalog=/*CATALOG*/;
+const {sin,cos,pow,floor,abs}=Math;
+function point(kind,u,v,k,t){let a=0,b=0,c=0,d=0,e=0,f=0;switch(kind){/*KERNELS*/}return[0,0,0];}
+const gl=cv.getContext('webgl',{antialias:true,alpha:true});
+if(!gl){detail.textContent='WebGL недоступен в этом окне. Эффекты доступны в Unity: F5.';return;}
+gl.getExtension('OES_standard_derivatives');
+const vertex=`attribute vec3 p;attribute vec2 uv;attribute float part;varying vec2 q;varying float piece,facing,dist;varying vec3 world;uniform float aspect,kind;void main(){world=p;q=uv;piece=part;float focus=kind<.5?110.:kind<1.5?85.:kind<2.5?235.:kind<3.5?0.:kind<6.5?8.:0.;vec3 eye=vec3(0.,kind>1.5&&kind<2.5?45.:24.,kind<.5?-340.:kind<1.5?-290.:kind<2.5?-560.:-130.);vec3 forward=normalize(vec3(0.,focus,0.)-eye),right=vec3(1.,0.,0.),up=cross(forward,right);vec3 delta=p-eye;vec3 r=vec3(dot(delta,right),dot(delta,up),dot(delta,forward));float z=max(2.,r.z);facing=abs(dot(vec3(cos(uv.x*6.283),0.,sin(uv.x*6.283)),normalize(-delta)));dist=length(delta);gl_Position=vec4(r.x*1.55/aspect,r.y*1.55,z*.999-0.2,z);}`;
+const fragment=`/*NATIVE_FRAGMENT*/`;
+function shader(type,src){const s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);if(!gl.getShaderParameter(s,gl.COMPILE_STATUS))throw Error(gl.getShaderInfoLog(s));return s;}
+const pr=gl.createProgram();gl.attachShader(pr,shader(gl.VERTEX_SHADER,vertex));gl.attachShader(pr,shader(gl.FRAGMENT_SHADER,fragment));gl.linkProgram(pr);if(!gl.getProgramParameter(pr,gl.LINK_STATUS))throw Error(gl.getProgramInfoLog(pr));gl.useProgram(pr);
+let kind=0,t=4,last=performance.now(),paused=matchMedia('(prefers-reduced-motion: reduce)').matches,vertices,indices,params;
+const buffer=gl.createBuffer(),ib=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buffer);gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,ib);
+const p=gl.getAttribLocation(pr,'p'),uv=gl.getAttribLocation(pr,'uv'),part=gl.getAttribLocation(pr,'part');gl.enableVertexAttribArray(p);gl.enableVertexAttribArray(uv);gl.enableVertexAttribArray(part);gl.vertexAttribPointer(p,3,gl.FLOAT,false,24,0);gl.vertexAttribPointer(uv,2,gl.FLOAT,false,24,12);gl.vertexAttribPointer(part,1,gl.FLOAT,false,24,20);
+for(let i=0;i<catalog.length;i++){const op=document.createElement('option');op.value=i;op.textContent=catalog[i].name;sel.append(op);}
+function select(){kind=Number(sel.value);const d=catalog[kind];params=[];const ids=[];range.max=d.duration;for(let k=0;k<d.parts;k++){let start=params.length;for(let u=0;u<=d.nu;u++)for(let v=0;v<=d.nv;v++)params.push([u/d.nu,v/d.nv,k]);for(let u=0;u<d.nu;u++)for(let v=0;v<d.nv;v++){let a=start+u*(d.nv+1)+v,b=a+d.nv+1;ids.push(a,b,a+1,a+1,b,b+1);}}vertices=new Float32Array(params.length*6);indices=new Uint16Array(ids);gl.bufferData(gl.ELEMENT_ARRAY_BUFFER,indices,gl.STATIC_DRAW);detail.textContent=d.name+' · '+d.points+' очков · '+d.duration+' с';}
+function save(){window.openai?.setWidgetState?.({modelContent:{event:catalog[kind].key},privateContent:{kind,paused}})?.catch(()=>{});}
+sel.addEventListener('change',()=>{select();save();});play.addEventListener('click',()=>{paused=!paused;play.textContent=paused?'Продолжить':'Пауза';save();});range.addEventListener('input',()=>{t=Number(range.value);paused=true;play.textContent='Продолжить';});
+function restore(s){if(s?.privateContent){sel.value=Math.max(0,Math.min(7,s.privateContent.kind||0));paused=!!s.privateContent.paused;}select();play.textContent=paused?'Продолжить':'Пауза';}restore(window.openai?.widgetState);window.addEventListener('openai:set_globals',e=>restore(e.detail?.globals?.widgetState));
+function frame(now){if(!cv.isConnected)return;const dt=Math.min(.04,(now-last)/1000);last=now;if(!paused)t=(t+dt)%catalog[kind].duration;range.value=t;let width=Math.max(280,cv.clientWidth);cv.width=Math.round(width*Math.min(devicePixelRatio,2));cv.height=Math.round(cv.width*9/16);gl.viewport(0,0,cv.width,cv.height);gl.clearColor(0,0,0,0);gl.clear(gl.COLOR_BUFFER_BIT);gl.enable(gl.BLEND);gl.blendFuncSeparate(gl.SRC_ALPHA,gl.ONE_MINUS_SRC_ALPHA,gl.ONE,gl.ONE_MINUS_SRC_ALPHA);for(let i=0;i<params.length;i++){const q=params[i],r=point(kind,q[0],q[1],q[2],t);vertices.set([r[0],r[1],r[2],q[0],q[1],q[2]],i*6);}gl.bufferData(gl.ARRAY_BUFFER,vertices,gl.DYNAMIC_DRAW);const d=catalog[kind];gl.uniform1f(gl.getUniformLocation(pr,'aspect'),cv.width/cv.height);gl.uniform1f(gl.getUniformLocation(pr,'kind'),kind);gl.uniform1f(gl.getUniformLocation(pr,'time'),t);gl.uniform3fv(gl.getUniformLocation(pr,'color'),d.color);gl.uniform3fv(gl.getUniformLocation(pr,'accent'),d.accent);gl.drawElements(gl.TRIANGLES,indices.length,gl.UNSIGNED_SHORT,0);requestAnimationFrame(frame);}requestAnimationFrame(frame);
+})();
+</script>
+</html>

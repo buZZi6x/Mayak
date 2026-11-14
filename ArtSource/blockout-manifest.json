@@ -1,0 +1,22 @@
+{
+  "source": "Blender 5.1",
+  "units": "meters",
+  "environment_objects": 418,
+  "mesh_objects": 392,
+  "exports": [
+    "Boat.fbx",
+    "Camera.fbx",
+    "Kraken.fbx",
+    "LighthouseEnvironment.fbx"
+  ],
+  "stair_riser": 0.18,
+  "stair_width": 1.63,
+  "watch_floor": 9.86,
+  "workstations": [
+    "lamp",
+    "radio",
+    "bed",
+    "telescope",
+    "door"
+  ]
+}

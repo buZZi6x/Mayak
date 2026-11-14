@@ -1,0 +1,40 @@
+{
+  "purpose": "Local main-menu HTML approval, 2026-11-14. No anime frames or music included.",
+  "reference": {
+    "title": "Summer Time Rendering, first ending, cadode — Kaika / 回夏",
+    "official_index": "https://summertime-anime.com/movie/",
+    "official_video": "https://www.youtube.com/watch?v=1hW__h-C_jI",
+    "observed": "Original ending viewed in browser at approximately 00:06, 00:34, 00:48 and 01:04: live sea, forested island, boat wake, overcast light, chromatic edges. Red interruptions are the owner's requested treatment."
+  },
+  "menu-sea.png": {
+    "status": "Retired after owner revision on 2026-11-14. Not referenced by the menu; retained as source history.",
+    "kind": "Original image generated with the built-in imagegen tool, then copied unmodified into the project.",
+    "generation_id": "exec-14a7de27-3c0c-4fd2-99a3-596de816c8fd",
+    "prompt": "Create an original cinematic ocean background image for a psychological mystery lighthouse game's main menu. 16:9 landscape, full bleed, no letters, no UI, no logo, no people, no boat visible, no buildings. A photographic shot low over the dark teal open sea from a gently moving boat, realistically detailed rolling wind ripples and a little off-white foam at the bottom right. A low remote dark forested island on the horizon, mostly on the right half, soft layered grey overcast sky with a restrained pale warm glow through clouds toward the upper right. Horizon at 36% down from the top, water fills most of the frame. The left third has low contrast dark sea and subdued sky, providing natural quiet negative space for a title and four menu choices. Mood: an ordinary coastal summer afternoon made quietly uncanny, nostalgic analog film footage, very fine restrained grain, cool desaturated jade water, silver highlights, deep charcoal shadows. Beautiful nuanced film color grade and believable water detail, natural lens and perspective. No overt horror symbols, no red yet (red glitch effect will be programmed separately), no sun disc, no stars, no fantasy lighthouse, no text, no borders. Aim for the authenticity of handheld sea footage in a Japanese coastal mystery ending sequence, but an entirely new original composition.",
+    "animation": "Previous prototype used image displacement; replaced by the project's actual HDRP ocean capture."
+  },
+  "menu-simulation.mp4": {
+    "kind": "Local recording of the project's actual Unity HDRP ocean simulation.",
+    "scene": "Lighthouse/Assets/Scenes/LighthouseBlockout.unity",
+    "capture_script": "Lighthouse/AgentScripts/CaptureMenuSea.cs",
+    "capture_report": "Artifacts/UI/MainMenu/SeaCapture/capture.json",
+    "processing_script": "Tools/prepare_menu_video.ps1",
+    "capture": "480 frames at 1280x720, 24 fps, clear weather at 17.4h; camera (5,8,-11.5) toward (22,1.8,-180), FOV 65. Runtime camera, HUD and environment state restored in finally; scene not saved.",
+    "loop": "19-second H.264 loop; last second crossfades to the preceding first second. Local, muted, no external requests.",
+    "shader": "menu-sea.js samples actual video frames. Rare red palette changes, horizontal tears and chromatic separation remain; image-water displacement removed. Native Unity integration will use a live scene camera after HTML approval."
+  },
+  "menu-simulation-poster.jpg": "Unmodified frame 0024 from the Unity capture; loading, autoplay-denied and reduced-motion fallback.",
+  "nautical-chart.svg": "Original code-drawn chart grid, depth contours and compass rose for the maritime archive.",
+  "mayak-wordmark.svg": "Original vector lettering treatment: Cormorant Garamond 550 outlines with original kraken tentacles/mantle on Cyrillic M and lighthouse tower integrated into Cyrillic Ya. Typeface license remains bundled in fonts/cormorantgaramond-OFL.txt.",
+  "mayak-wordmark-v2.svg": "Redrawn on 2026-11-14 and approved by the owner for Unity. Original hand-authored Cyrillic vector paths, not font outlines: broad wedge-serif letters, three tentacles continuing the M, a readable Ya bowl/diagonal and lighthouse stem with transparent windows. One flat ivory fill; no masks, filters, embedded fonts or external images. Active in menu.html and copied byte-for-byte to Lighthouse/Assets/Resources/KeeperMenu/mayak-wordmark.svg with the existing GUID. Explicit 760x220 viewport and preserveViewport retain the approved proportions in Unity.",
+  "requested_music": {"track":"cadode — 回夏 / Kaika","official_source":"https://summertime-anime.com/music/ed1/","status":"Not downloaded or embedded. Awaiting a user-provided audio file or an authorized distributable source."},
+  "menu_mix": {"waves_gain_before":0.45,"waves_gain_after":0.12,"relative_change_db":-11.48,"scope":"Menu only; multiplied by saved master and ambience volumes. Gameplay ocean audio is unchanged."},
+  "fonts": [
+    {"family":"Cormorant Garamond","file":"fonts/CormorantGaramond.ttf","source":"https://github.com/google/fonts/tree/main/ofl/cormorantgaramond","author":"The Cormorant Project Authors / Christian Thalmann","license":"SIL Open Font License 1.1","license_file":"fonts/cormorantgaramond-OFL.txt","use":"Game wordmark outline basis, photo captions and headings"},
+    {"family":"Commissioner","file":"fonts/Commissioner.ttf","source":"https://github.com/google/fonts/tree/main/ofl/commissioner","author":"The Commissioner Project Authors / Kostas Bartsokas","license":"SIL Open Font License 1.1","license_file":"fonts/commissioner-OFL.txt","use":"Controls, settings, HUD, tooltips and small labels"}
+  ],
+  "menu-ocean.ogg": "Copied from Lighthouse/Assets/Environment/Audio/Offshore.ogg; attribution remains in THIRD_PARTY_NOTICES.md.",
+  "menu-shutter.wav": "Copied from Lighthouse/Assets/Art/CoastalLife/Audio/CameraShutter.wav; Joseph SARDIN / BigSoundBank 2544, CC0; attribution in THIRD_PARTY_NOTICES.md.",
+  "DecksideJig.mp3": "Owner-provided C:/Users/Vlad/Downloads/Deckside Jig.mp3, explicitly requested on 2026-11-14. Unmodified source copied to Lighthouse/Assets/Audio/Menu/DecksideJig.mp3. Stereo 48000 Hz, 189.96 seconds. Looping menu-only AudioSource, streaming import, volume follows master and ambience. No public license inferred.",
+  "gallery": "Existing project screenshots listed in sources.json. Example prices 300, 120, 60 and score 480 are demonstration data only; no invented game-session history."
+}

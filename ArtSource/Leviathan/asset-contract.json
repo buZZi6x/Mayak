@@ -1,0 +1,17 @@
+{
+  "identity": "Original abyssal sea serpent; no external model",
+  "source_length_metres": 192,
+  "runtime_scale": 3,
+  "length_metres": 576,
+  "spine_metres": 156,
+  "runtime": "27-bone arc-length skinning; one 23-second breach, about 306 metres above water; recorded roar and additive camera shake",
+  "materials": [
+    "Leviathan_Skin",
+    "Leviathan_Belly",
+    "Leviathan_Ridge",
+    "Leviathan_Bone",
+    "Leviathan_Mouth",
+    "Leviathan_Glow"
+  ],
+  "vertices": 8802
+}

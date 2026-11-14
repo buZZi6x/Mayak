@@ -1,0 +1,34 @@
+{
+  "blender": "5.1.2",
+  "source": "ArtSource/Lighthouse_Coastal.blend",
+  "materials": [
+    "Coast_Rock",
+    "Coast_Masonry",
+    "Coast_Plaster",
+    "Coast_Wood",
+    "Coast_Copper",
+    "Coast_Red",
+    "Coast_Iron",
+    "Coast_Brass",
+    "Coast_Teal",
+    "Coast_Cloth",
+    "Coast_Linen",
+    "Coast_Paper"
+  ],
+  "textures": 36,
+  "texture_resolution": 1024,
+  "environment_meshes": 457,
+  "triangles": 443326,
+  "route": "Original 30 risers and 37 markers retained",
+  "exports": [
+    "LighthouseEnvironment.fbx",
+    "Camera.fbx"
+  ],
+  "packed_textures": true,
+  "scanned_surfaces": [
+    "weathered_planks",
+    "white_plaster_rough_01",
+    "rock_face"
+  ],
+  "polish": "In-world instrument lettering, cloth, continuous plaster UVs, practical fixtures"
+}

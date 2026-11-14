@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="220" viewBox="0 0 760 220" fill="#e8dfc9" role="img" aria-labelledby="title desc">
+  <title id="title">Маяк</title>
+  <desc id="desc">Авторское кириллическое начертание. Штрихи М переходят в щупальца, правая стойка Я образует башню маяка.</desc>
+  <!-- M: the arms grow from the letter, without a separate creature or ornament. -->
+  <path d="M35 42H77L120 132L163 42H207V47L194 54L201 156C202 175 218 180 223 169C226 162 220 157 215 160C218 149 234 154 234 168C234 186 217 195 201 192C182 189 174 176 173 155L167 77L126 166H113L68 76L65 153C64 177 53 196 32 196C14 196 4 184 8 172C11 161 24 160 29 168C22 164 16 170 20 177C27 191 47 179 48 154L51 55L35 47Z"/>
+  <path d="M113 158L126 158C126 175 132 188 144 191C153 193 157 188 154 183C152 180 149 180 147 182C153 174 164 180 163 189C162 203 145 207 132 200C117 193 112 177 113 158Z"/>
+  <g transform="translate(10 0)">
+  <!-- A: wedge serifs and a broad, open counter keep the name legible at menu scale. -->
+  <path fill-rule="evenodd" d="M298 39H313L373 173L389 181V187H322V181L337 175L324 145H271L261 174L276 181V187H232V181L246 174ZM299 77L277 130H318Z"/>
+  <!-- Ya: a full bowl and diagonal remain visible; the tower is the right stem. -->
+  <path fill-rule="evenodd" d="M531 45H475C435 45 412 59 412 85C412 108 430 122 460 126L413 174L397 181V187H450L500 128H516L511 175L501 181V187H567V181L554 175L543 45ZM518 62H479C458 62 447 70 447 85C447 102 458 110 478 110H520ZM531 128H536V144H531ZM530 157H537V176H530Z"/>
+  <!-- Lantern: open glass and a single roof silhouette, no pasted-on illustration. -->
+  <path d="M519 43H548V49H519ZM516 23L534 10L552 23ZM532 3H536V13H532ZM521 27H525V40H521ZM532 27H536V40H532ZM543 27H547V40H543Z"/>
+  <!-- K: compact chisel-cut terminals echo the A and the Ya's diagonal. -->
+  <path d="M586 42H647V48L634 54V104L681 55L670 48V42H726V48L710 55L666 102L716 173L738 181V187H673V181L682 175L641 118L634 125V175L647 181V187H586V181L600 175V54L586 48Z"/>
+  </g>
+</svg>

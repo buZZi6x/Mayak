@@ -1,0 +1,29 @@
+[
+  {
+    "Title": "Ashes of the Keep",
+    "Source": "ArtSource/Radio/Music/Ashes of the Keep.mp3",
+    "Origin": "Provided by the project owner in this chat",
+    "Runtime": "Lighthouse/Assets/Resources/KeeperRadio/Music/ashes-of-the-keep.ogg",
+    "Processing": "Full track, audio only (cover art excluded); loudness target -20 LUFS, -2 dBTP, stereo 44.1 kHz, Vorbis q4",
+    "SourceSHA256": "98E1D095C426E4F9E4A6A0F1AB63261B4F276DC0AD6E906040898F87D0D03A13",
+    "RuntimeSHA256": "3DF2B91D71BB1300C05818EC367639CCF88006936450F5F92AF993EBBF1C17AA"
+  },
+  {
+    "Title": "Deckside Jig",
+    "Source": "ArtSource/Radio/Music/Deckside Jig.mp3",
+    "Origin": "Provided by the project owner in this chat",
+    "Runtime": "Lighthouse/Assets/Resources/KeeperRadio/Music/deckside-jig.ogg",
+    "Processing": "Full track, audio only (cover art excluded); loudness target -20 LUFS, -2 dBTP, stereo 44.1 kHz, Vorbis q4",
+    "SourceSHA256": "40773AC6B615695FC7AD4EE1181384EE5DE1B54689A6BAA16F4BD659CFC735B6",
+    "RuntimeSHA256": "FEFB51592B9A20CD67DFF0DBC9E135A39CF339DB3E4F095F9CF68F7DCA1DD4F1"
+  },
+  {
+    "Title": "Sun-Faded Memory",
+    "Source": "ArtSource/Radio/Music/Sun-Faded Memory.mp3",
+    "Origin": "Provided by the project owner in this chat",
+    "Runtime": "Lighthouse/Assets/Resources/KeeperRadio/Music/sun-faded-memory.ogg",
+    "Processing": "Full track, audio only (cover art excluded); loudness target -20 LUFS, -2 dBTP, stereo 44.1 kHz, Vorbis q4",
+    "SourceSHA256": "2730A9A4EC8A5C9AA1EA5BA983D9B9D798BF5FDE5D045CCCBDFBA75E66FEEF28",
+    "RuntimeSHA256": "F1D19C8A75CAFAC50D459B180FB9503FD55B1CB259F3C22ADB0145FCF88A4313"
+  }
+]

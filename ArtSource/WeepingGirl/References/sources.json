@@ -1,0 +1,20 @@
+{
+  "purpose": "Visual comparison only; these Slender screenshots are not runtime assets and must not be included in the game build.",
+  "reviewedOn": "2026-11-14",
+  "sources": [
+    {
+      "file": "slender-static-reference.jpg",
+      "url": "https://honordhorrors.wordpress.com/wp-content/uploads/2016/04/50bd60a7bef9f.jpg",
+      "page": "https://honordhorrors.wordpress.com/2016/04/27/slender-the-eight-pages/",
+      "observation": "Stationary distant figure remains visible under coarse dark monochrome grain. No coloured RGB glitches."
+    },
+    {
+      "file": "slender-terminal-reference.jpg",
+      "url": "https://honordhorrors.wordpress.com/wp-content/uploads/2016/04/s-tep_gameover.jpg",
+      "page": "https://honordhorrors.wordpress.com/2016/04/27/slender-the-eight-pages/",
+      "observation": "Final signal loss is high contrast black-and-white correlated snow and horizontal breaks. We recreate the signal effect; the owner explicitly removed the close-up and lunge from this game's encounter."
+    }
+  ],
+  "implementation": "Original project HLSL: after-postprocess monochrome correlated noise, scan breakup, horizontal dropout and scene attenuation. No extracted Slender assets or code.",
+  "ownerDecision": "After more than three seconds it is too late; looking away no longer prevents death."
+}

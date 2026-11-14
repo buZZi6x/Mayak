@@ -1,0 +1,19 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+  <ui:VisualElement name="radio-overlay" class="radio-overlay">
+    <ui:VisualElement name="radio-stage" class="radio-stage">
+      <ui:Image name="radio-plate" class="radio-plate" picking-mode="Ignore" />
+      <ui:Button name="radio-close" class="radio-close" text="×" />
+      <ui:Label name="radio-station" class="radio-station" picking-mode="Ignore" />
+      <ui:Label name="radio-frequency" class="radio-frequency" picking-mode="Ignore" />
+      <ui:Slider name="radio-wave" class="radio-wave" low-value="88" high-value="108" value="94.2" />
+      <ui:Button name="radio-on" class="radio-power radio-on" text="ВКЛ" />
+      <ui:Button name="radio-off" class="radio-power radio-off" text="ВЫКЛ" />
+      <ui:VisualElement name="radio-led" class="radio-led" picking-mode="Ignore" />
+      <ui:VisualElement name="radio-knob" class="radio-knob" focusable="true" tabindex="0">
+        <ui:VisualElement name="radio-knob-rotor" class="radio-knob-rotor" picking-mode="Ignore"><ui:VisualElement class="radio-knob-mark" picking-mode="Ignore" /></ui:VisualElement>
+      </ui:VisualElement>
+      <ui:Label name="radio-music" class="radio-music" picking-mode="Ignore" />
+      <ui:Label name="radio-transcript" class="radio-transcript" picking-mode="Ignore" />
+    </ui:VisualElement>
+  </ui:VisualElement>
+</ui:UXML>

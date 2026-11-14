@@ -1,0 +1,92 @@
+[
+  {
+    "material": "Coast_Wood",
+    "asset": "weathered_planks",
+    "map": "Diffuse",
+    "path": "ArtSource\\Surfaces\\weathered_planks_Diffuse.png",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/weathered_planks/weathered_planks_diff_1k.png",
+    "md5": "eec7bfcfde937e16eacf49d9a2689c6f",
+    "license": "CC0",
+    "source": "https://polyhaven.com/a/weathered_planks"
+  },
+  {
+    "material": "Coast_Wood",
+    "asset": "weathered_planks",
+    "map": "nor_gl",
+    "path": "ArtSource\\Surfaces\\weathered_planks_nor_gl.png",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/weathered_planks/weathered_planks_nor_gl_1k.png",
+    "md5": "60576e594edad5cd2712f9817788d237",
+    "license": "CC0",
+    "source": "https://polyhaven.com/a/weathered_planks"
+  },
+  {
+    "material": "Coast_Wood",
+    "asset": "weathered_planks",
+    "map": "arm",
+    "path": "ArtSource\\Surfaces\\weathered_planks_arm.png",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/weathered_planks/weathered_planks_arm_1k.png",
+    "md5": "bdb88d2380bd12c3a317cee19aaef0cd",
+    "license": "CC0",
+    "source": "https://polyhaven.com/a/weathered_planks"
+  },
+  {
+    "material": "Coast_Plaster",
+    "asset": "white_plaster_rough_01",
+    "map": "Diffuse",
+    "path": "ArtSource\\Surfaces\\white_plaster_rough_01_Diffuse.png",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/white_plaster_rough_01/white_plaster_rough_01_diff_1k.png",
+    "md5": "709321b63dd17d5de34c2993c7eff547",
+    "license": "CC0",
+    "source": "https://polyhaven.com/a/white_plaster_rough_01"
+  },
+  {
+    "material": "Coast_Plaster",
+    "asset": "white_plaster_rough_01",
+    "map": "nor_gl",
+    "path": "ArtSource\\Surfaces\\white_plaster_rough_01_nor_gl.png",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/white_plaster_rough_01/white_plaster_rough_01_nor_gl_1k.png",
+    "md5": "a68f5d57274a34ff526ceb640e6c8b6d",
+    "license": "CC0",
+    "source": "https://polyhaven.com/a/white_plaster_rough_01"
+  },
+  {
+    "material": "Coast_Plaster",
+    "asset": "white_plaster_rough_01",
+    "map": "arm",
+    "path": "ArtSource\\Surfaces\\white_plaster_rough_01_arm.png",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/white_plaster_rough_01/white_plaster_rough_01_arm_1k.png",
+    "md5": "ffec2deb780e2699f96dd699d9b91d32",
+    "license": "CC0",
+    "source": "https://polyhaven.com/a/white_plaster_rough_01"
+  },
+  {
+    "material": "Coast_Rock",
+    "asset": "rock_face",
+    "map": "Diffuse",
+    "path": "ArtSource\\Surfaces\\rock_face_Diffuse.png",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/rock_face/rock_face_diff_1k.png",
+    "md5": "ace5b9671b95c13f51d55ae6aebfef0a",
+    "license": "CC0",
+    "source": "https://polyhaven.com/a/rock_face"
+  },
+  {
+    "material": "Coast_Rock",
+    "asset": "rock_face",
+    "map": "nor_gl",
+    "path": "ArtSource\\Surfaces\\rock_face_nor_gl.png",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/rock_face/rock_face_nor_gl_1k.png",
+    "md5": "9d13dc8de098d5c2a5bee844c317b946",
+    "license": "CC0",
+    "source": "https://polyhaven.com/a/rock_face"
+  },
+  {
+    "material": "Coast_Rock",
+    "asset": "rock_face",
+    "map": "arm",
+    "path": "ArtSource\\Surfaces\\rock_face_arm.png",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/rock_face/rock_face_arm_1k.png",
+    "md5": "938ec73e9231066b20cb7201d842b801",
+    "license": "CC0",
+    "source": "https://polyhaven.com/a/rock_face"
+  }
+]

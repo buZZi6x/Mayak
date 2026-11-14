@@ -1,0 +1,27 @@
+{
+  "vessels": [
+    {
+      "id": "MeridianFrigate",
+      "length": 48,
+      "beam": 11.8,
+      "mast": 34,
+      "fractureGroups": 20
+    },
+    {
+      "id": "PilgrimBarque",
+      "length": 57,
+      "beam": 12.8,
+      "mast": 39,
+      "fractureGroups": 20
+    },
+    {
+      "id": "NorthernSteamer",
+      "length": 62,
+      "beam": 11.5,
+      "mast": 26,
+      "fractureGroups": 19
+    }
+  ],
+  "blender": "5.1.2",
+  "kraken": "24m tapered mantle; procedural arms authored in Unity"
+}

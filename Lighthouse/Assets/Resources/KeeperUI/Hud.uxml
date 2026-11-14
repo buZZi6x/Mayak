@@ -1,0 +1,66 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+  <ui:VisualElement name="surface" class="surface" picking-mode="Ignore">
+    <ui:VisualElement name="hud" class="surface" picking-mode="Ignore">
+      <ui:VisualElement name="shade" class="surface" picking-mode="Ignore" />
+      <ui:VisualElement name="stats" class="stats row">
+        <ui:VisualElement name="fuel-stat" class="stat row">
+          <ui:Image name="icon-flame" class="icon fuel-icon" />
+          <ui:VisualElement><ui:Label text="Топливо" class="stat-label" /><ui:Label name="fuel" text="02:00" class="fuel-value" /></ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="score-stat" class="score-stat"><ui:Label text="Счёт вахты" class="stat-label" /><ui:Label name="score" text="0" class="score-value" /></ui:VisualElement>
+      </ui:VisualElement>
+      <ui:VisualElement name="reticle" class="reticle" picking-mode="Ignore" />
+      <ui:VisualElement name="equipment" class="equipment">
+        <ui:Button name="torch-button" class="equipment-button row">
+          <ui:Label text="Q" class="key" /><ui:Image name="icon-flashlight" class="icon" /><ui:VisualElement class="equipment-copy"><ui:Label text="Фонарь" class="equipment-name" /><ui:Label name="torch-action" text="Включить" class="equipment-action" /></ui:VisualElement><ui:VisualElement name="torch-dot" class="dot" />
+        </ui:Button>
+        <ui:Button name="camera-button" class="equipment-button row">
+          <ui:Label text="E" class="key" /><ui:Image name="icon-camera" class="icon" /><ui:VisualElement class="equipment-copy"><ui:Label text="Камера" class="equipment-name" /><ui:Label name="camera-action" text="Достать" class="equipment-action" /></ui:VisualElement><ui:VisualElement name="camera-dot" class="dot" />
+        </ui:Button>
+      </ui:VisualElement>
+      <ui:VisualElement name="slots" class="slots row" />
+      <ui:Button name="clean-button" class="clean-button row"><ui:Image name="icon-eye" class="icon" /><ui:Label text="Чистый вид" /><ui:Label text="Tab" class="key" /></ui:Button>
+      <ui:Button name="held" class="held"><ui:Image name="held-image" class="held-image" /><ui:VisualElement class="paper-caption row"><ui:Label name="held-title" class="paper-title" /><ui:Label name="held-price" class="paper-price" /></ui:VisualElement></ui:Button>
+      <ui:VisualElement name="viewfinder" class="viewfinder" picking-mode="Ignore">
+        <ui:VisualElement class="corner tl" /><ui:VisualElement class="corner tr" /><ui:VisualElement class="corner bl" /><ui:VisualElement class="corner br" />
+        <ui:Label name="exposures" class="camera-readout" />
+        <ui:Label text="ПКМ  Приблизить" class="aim-hint" />
+      </ui:VisualElement>
+      <ui:VisualElement name="world-card" class="world-card panel">
+        <ui:VisualElement class="row"><ui:Image name="object-icon" class="icon" /><ui:Label name="object-title" class="object-title" /></ui:VisualElement>
+        <ui:Label name="object-description" class="description" />
+        <ui:Button name="object-action" class="object-action row"><ui:Label text="F" class="key" /><ui:Label name="object-action-label" class="action-label" /><ui:Label name="object-duration" class="muted" /></ui:Button>
+        <ui:VisualElement name="lamp-repair-progress" class="action-progress" picking-mode="Ignore"><ui:VisualElement name="lamp-repair-fill" class="action-progress-fill" /></ui:VisualElement>
+      </ui:VisualElement>
+      <ui:Button name="door" class="door row"><ui:Label text="F" class="key" /><ui:Label name="door-label" text="— Открыть дверь" /></ui:Button>
+      <ui:Label name="notice" class="notice panel" />
+      <ui:Label name="work-status" class="work-status panel" />
+      <ui:Label name="lamp-warning" class="lamp-warning panel" />
+      <ui:VisualElement name="tooltip" class="tooltip panel" picking-mode="Ignore"><ui:Label name="tip-title" class="object-title" /><ui:Image name="tip-image" class="tip-image" /><ui:Label name="tip-copy" class="description" /><ui:Label name="tip-footer" class="tip-footer" /></ui:VisualElement>
+      <ui:VisualElement name="inspector" class="modal surface">
+        <ui:VisualElement name="inspect-content" class="inspect-content">
+          <ui:VisualElement class="inspect-toolbar row"><ui:Label name="inspect-index" /><ui:Button name="inspect-close" class="row"><ui:Label text="Esc" class="key" /><ui:Image name="icon-close" class="icon" /></ui:Button></ui:VisualElement>
+          <ui:VisualElement class="inspect-paper"><ui:Image name="inspect-image" class="inspect-image" /><ui:VisualElement class="paper-caption row"><ui:Label name="inspect-title" class="inspect-title" /><ui:Label name="inspect-price" class="paper-price" /></ui:VisualElement></ui:VisualElement>
+          <ui:VisualElement class="inspect-bottom row"><ui:Button name="inspect-prev"><ui:Image name="icon-prev" class="icon reverse" /></ui:Button><ui:Label name="inspect-status" /><ui:Button name="inspect-next"><ui:Image name="icon-next" class="icon" /></ui:Button></ui:VisualElement>
+        </ui:VisualElement>
+      </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="game-over" class="surface end-overlay" focusable="true" tabindex="-1">
+      <ui:VisualElement name="result-panel" class="end-sheet">
+        <ui:VisualElement class="end-corner end-tl" picking-mode="Ignore" /><ui:VisualElement class="end-corner end-tr" picking-mode="Ignore" />
+        <ui:VisualElement class="end-corner end-bl" picking-mode="Ignore" /><ui:VisualElement class="end-corner end-br" picking-mode="Ignore" />
+        <ui:Label name="result-title" text="Вахта окончена" class="end-title" picking-mode="Ignore" />
+        <ui:Label name="result-reason" class="end-reason" picking-mode="Ignore" />
+        <ui:VisualElement name="result-stats" class="end-results row" picking-mode="Ignore">
+          <ui:VisualElement class="end-stat end-current" picking-mode="Ignore"><ui:Label text="Счёт вахты" class="end-stat-label" picking-mode="Ignore" /><ui:Label name="result-score" text="0" class="end-number" picking-mode="Ignore" /></ui:VisualElement>
+          <ui:VisualElement class="end-stat end-best" picking-mode="Ignore"><ui:Label text="Рекорд" class="end-stat-label" picking-mode="Ignore" /><ui:Label name="result-best" text="0" class="end-number" picking-mode="Ignore" /></ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="result-actions" class="end-actions row">
+          <ui:Button name="restart" class="end-button end-primary"><ui:Label text="Новый забег" class="end-action-label" picking-mode="Ignore" /><ui:Label text="F1" class="end-key" picking-mode="Ignore" /></ui:Button>
+          <ui:Button name="result-menu" class="end-button end-secondary"><ui:Label text="В главное меню" class="end-action-label" picking-mode="Ignore" /><ui:Label text="Esc" class="end-key" picking-mode="Ignore" /></ui:Button>
+        </ui:VisualElement>
+      </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="sleep-fade" class="effect surface sleep-fade" picking-mode="Ignore" /><ui:VisualElement name="flash" class="effect surface flash" picking-mode="Ignore" />
+  </ui:VisualElement>
+</ui:UXML>

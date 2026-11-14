@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Игровой интерфейс: фотографии, камера и рабочие места смотрителя маяка.">
+  <title>Маяк — игровой интерфейс</title>
+  <link rel="icon" href="assets/lighthouse.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="radio-receiver.css">
+  <link rel="stylesheet" href="pause.css">
+  <link rel="stylesheet" href="game-over.css">
+  <script src="app.js" defer></script>
+  <script src="radio-receiver.js" defer></script>
+  <script src="game-over.js" defer></script>
+  <script src="pause.js" defer></script>
+</head>
+<body>
+  <svg class="svg-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+    <symbol id="i-lighthouse" viewBox="0 0 32 40"><path d="m10 34 2-20h8l2 20M8 35h16M10 14h12M11 7h10v7H11zM9 7l7-5 7 5M16 2V0M15 27h2v7M4 10H0m32 0h-4M5 5 2 3m25 2 3-2"/><path d="M12 20h8M11 27h10"/></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24"><path d="m8 5 1.5-2h5L16 5h4a2 2 0 0 1 2 2v12H2V7a2 2 0 0 1 2-2z"/><circle cx="12" cy="12" r="4"/><path d="M18 8h1"/></symbol>
+    <symbol id="i-flashlight" viewBox="0 0 24 24"><path d="M8 9h8l-2 4v8h-4v-8zM8 6h8v3M12 1v2M4 3l2 2m14-2-2 2M11 16h2"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-flame" viewBox="0 0 24 24"><path d="M13 2c2 6-1 7 1 9 1-1 2-2 2-4 7 7 4 15-4 15S1 14 7 8c-1 4 1 5 2 5-1-4 5-5 4-11Z"/><path d="M12 15c-3 3-2 5 0 5s3-2 0-5Z"/></symbol>
+    <symbol id="i-lamp" viewBox="0 0 24 24"><path d="M8 6V4a4 4 0 0 1 8 0v2M6 7h12M7 7l-1 14h12L17 7M5 22h14M12 10v7M10 17h4"/></symbol>
+    <symbol id="i-photo" viewBox="0 0 24 24"><path d="M3 2h18v20H3zM6 5h12v11H6zM6 14l4-4 3 3 2-2 3 3M8 19h8"/></symbol>
+    <symbol id="i-radio" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="m5 7 12-5M12 11h6M12 15h6M12 18h3"/><circle cx="7" cy="14" r="2"/></symbol>
+    <symbol id="i-bed" viewBox="0 0 24 24"><path d="M3 4v17M21 12v9M3 17h18M3 9h6v5H3M9 10h9a3 3 0 0 1 3 3v4H9z"/></symbol>
+    <symbol id="i-door" viewBox="0 0 24 24"><path d="M4 22V2h14v20M2 22h20M7 4l11-2v20L7 20zM10 12v2"/></symbol>
+    <symbol id="i-telescope" viewBox="0 0 24 24"><path d="m2 9 4-2 3 6-4 2zM6 7l11-5 4 8-12 3M10 13l2 3m0 0-5 6m5-6 6 6m-6-6v6"/></symbol>
+    <symbol id="i-ship" viewBox="0 0 24 24"><path d="M3 16h18l-3 5H7zM12 2v14M10 4 4 13h6zM14 4l6 9h-6zM2 23l3-1 4 1 3-1 4 1 3-1 3 1"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 2 2.5 7.5L22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+    <symbol id="i-mouse" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="7"/><path d="M12 2v7M5 10h14M9 5v2"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 15A9 9 0 0 1 9 3a9 9 0 1 0 11 12Z"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></symbol>
+  </defs></svg>
+
+  <main id="game" aria-label="Игровой интерфейс маяка">
+    <div id="world" class="world">
+      <div id="scene-plane" class="scene-plane">
+        <img id="scene-image" src="assets/sea.png" alt="Ночной океан, три корабля и свет маяка на парусах" draggable="false">
+        <div id="hotspots" data-ui></div>
+      </div>
+      <div id="torch-light" class="torch-light" aria-hidden="true"></div>
+    </div>
+    <div class="edge-shade" data-ui aria-hidden="true"></div>
+
+    <div id="hud" data-ui>
+      <header class="topbar">
+        <div id="review-locations" class="location-picker" hidden>
+          <button id="location-toggle" class="location-toggle" aria-label="Точки осмотра" aria-expanded="false" aria-controls="location-menu" data-tip="locations"><svg class="icon"><use href="#i-grid"/></svg><span id="location-label">Галерея · Море</span><svg class="icon chevron"><use href="#i-chevron"/></svg></button>
+          <nav id="location-menu" class="location-menu panel" aria-label="Точки осмотра интерфейса" hidden></nav>
+        </div>
+
+        <section class="watch-stats" aria-label="Состояние маяка">
+          <div class="stat" data-tip="fuel" tabindex="0"><svg class="icon"><use href="#i-flame"/></svg><div><span class="stat-label">Топливо</span><strong id="fuel-label">01:28</strong></div></div>
+          <div class="score-stat" data-tip="score" tabindex="0"><span class="stat-label">Счёт вахты</span><strong id="score-label">480</strong></div>
+        </section>
+      </header>
+
+      <div id="reticle" class="reticle" aria-hidden="true"><span></span></div>
+      <section id="object-card" class="object-card panel" aria-label="Предмет под прицелом" hidden></section>
+
+      <button id="held-photo" class="held-photo" aria-label="Рассмотреть фотографию" data-tip="held" hidden>
+        <img id="held-image" alt="" draggable="false">
+        <span class="paper-caption"><span id="held-title"></span><strong id="held-price"></strong></span>
+      </button>
+
+      <div id="viewfinder" class="viewfinder" hidden aria-label="Видоискатель камеры">
+        <span class="frame-corner tl"></span><span class="frame-corner tr"></span><span class="frame-corner bl"></span><span class="frame-corner br"></span>
+        <div class="camera-readout"><svg class="icon"><use href="#i-camera"/></svg><span>Камера</span><i></i><span id="exposures-label">Осталось 2 кадра</span></div>
+        <div class="focus-bracket" aria-hidden="true"></div>
+        <span class="aim-hint"><kbd>ПКМ</kbd> Приблизить</span>
+      </div>
+
+      <footer class="bottom-bar">
+        <div class="equipment" role="group" aria-label="Снаряжение">
+          <button id="torch-toggle" class="equipment-button" aria-keyshortcuts="Q" aria-pressed="false" data-tip="torch"><kbd>Q</kbd><svg class="icon"><use href="#i-flashlight"/></svg><span><strong>Фонарь</strong><small id="torch-label">Включить</small></span><i class="equipment-dot"></i></button>
+          <button id="camera-toggle" class="equipment-button" aria-keyshortcuts="E" aria-pressed="false" data-tip="camera"><kbd>E</kbd><svg class="icon"><use href="#i-camera"/></svg><span><strong>Камера</strong><small id="camera-label">Достать</small></span><i class="equipment-dot"></i></button>
+        </div>
+
+        <section class="photo-inventory" aria-label="Фотографии в руке">
+          <div id="photo-slots" class="photo-slots" role="toolbar" aria-label="Слоты фотографий с 1 по 5"></div>
+        </section>
+
+        <div class="view-controls"><button id="clean-toggle" class="clean-button" aria-keyshortcuts="Tab" data-tip="clean"><svg class="icon"><use href="#i-eye"/></svg><span>Чистый вид</span><kbd>Tab</kbd></button></div>
+      </footer>
+    </div>
+
+    <div id="flash" class="flash" aria-hidden="true"></div>
+    <div id="sleep-fade" class="sleep-fade" aria-hidden="true"></div>
+    <div id="toast" class="toast panel" role="status" data-ui hidden></div>
+    <aside id="tooltip" class="tooltip panel" role="tooltip" popover="manual" data-ui hidden></aside>
+
+    <dialog id="photo-dialog" class="photo-dialog" aria-labelledby="inspect-title">
+      <div class="inspect-toolbar"><span>СНИМОК <span id="inspect-index"></span></span><button id="inspect-close" class="icon-button" aria-label="Закрыть просмотр фотографии" data-tip="close"><kbd>Esc</kbd><svg class="icon"><use href="#i-close"/></svg></button></div>
+      <div class="inspect-paper"><img id="inspect-image" alt=""><div class="inspect-caption"><h2 id="inspect-title"></h2><strong id="inspect-price"></strong></div></div>
+      <div class="inspect-bottom"><button id="inspect-prev" class="icon-button" aria-label="Предыдущая фотография" data-tip="previous"><svg class="icon reverse"><use href="#i-chevron"/></svg></button><span id="inspect-status"></span><button id="inspect-next" class="icon-button" aria-label="Следующая фотография" data-tip="next"><svg class="icon"><use href="#i-chevron"/></svg></button></div>
+    </dialog>
+    <dialog id="radio-dialog" class="radio-dialog" aria-labelledby="radio-title" data-powered="true">
+      <div class="radio-stage">
+        <h2 id="radio-title" class="sr-only">Радио</h2><button id="radio-close" class="radio-close" aria-label="Закрыть радио" data-radio-tip="Закрыть · Esc">×</button>
+        <div class="radio-frequency"><output id="radio-frequency" for="radio-wave">94,2</output><span>МГц</span></div>
+        <p id="radio-station" class="radio-station">Береговая служба</p>
+        <input id="radio-wave" class="radio-wave" type="range" min="88" max="108" step="0.1" value="94.2" aria-label="Настройка волны" data-radio-tip="Настроить волну · мышь или стрелки">
+        <div class="radio-power" role="group" aria-label="Питание радио"><button id="radio-on" aria-pressed="true" data-radio-tip="Включить приёмник">Вкл</button><button id="radio-off" aria-pressed="false" data-radio-tip="Выключить приёмник">Выкл</button></div>
+        <i class="radio-led" aria-hidden="true"></i>
+        <div id="radio-knob" class="radio-knob" tabindex="0" role="slider" aria-label="Ручка настройки волны" aria-valuemin="88" aria-valuemax="108" aria-valuenow="94.2" data-radio-tip="Вращать · потяните мышью, колесо или стрелки"><div class="radio-knob-rotor"></div></div>
+        <p id="radio-music" class="radio-music" aria-live="polite"></p>
+        <p id="radio-transcript" class="radio-transcript" aria-live="polite"></p>
+      </div>
+    </dialog>
+    <span id="announcer" class="sr-only" role="status" aria-live="polite"></span>
+  </main>
+  <dialog id="end-dialog" aria-labelledby="end-title" aria-describedby="end-reason">
+    <section class="end-sheet">
+      <h2 id="end-title" tabindex="-1" autofocus>Вахта окончена</h2>
+      <p id="end-reason">Топливо кончилось. Маяк погас.</p>
+      <dl class="end-results" aria-label="Результат вахты">
+        <div class="end-current"><dt>Счёт вахты</dt><dd id="end-score">480</dd></div>
+        <div class="end-best"><dt>Рекорд</dt><dd id="end-record">1 260</dd></div>
+      </dl>
+      <nav class="end-actions" aria-label="После завершения вахты">
+        <button id="end-restart" class="end-primary" type="button" aria-keyshortcuts="F1"><span>Новый забег</span><kbd>F1</kbd></button>
+        <button id="end-menu" class="end-secondary" type="button" aria-keyshortcuts="Escape"><span>В главное меню</span><kbd>Esc</kbd></button>
+      </nav>
+    </section>
+  </dialog>
+  <dialog id="pause-dialog" aria-labelledby="pause-title">
+    <section class="pause-sheet" aria-label="Меню паузы">
+      <h2 id="pause-title">Пауза</h2>
+      <nav class="pause-actions" aria-label="Действия на паузе">
+        <button id="pause-settings" type="button">Настройки</button>
+        <button id="pause-exit" type="button">Выйти в меню</button>
+      </nav>
+      <span class="pause-return"><kbd>Esc</kbd> Вернуться в игру</span>
+    </section>
+    <iframe id="pause-settings-frame" title="Настройки игры на паузе" hidden></iframe>
+  </dialog>
+</body>
+</html>

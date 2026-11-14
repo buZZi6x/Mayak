@@ -1,0 +1,18 @@
+C:\Users\Vlad\Documents\ChatGPT\Jem 11\ArtSource\WeepingGirl\author_weeping_girl.py:20: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m=bpy.data.materials.new(name);m.diffuse_color=color;m.use_nodes=True
+C:\Users\Vlad\Documents\ChatGPT\Jem 11\ArtSource\WeepingGirl\author_weeping_girl.py:211: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world=bpy.data.worlds.new('Coastal darkness');world.use_nodes=True
+00:15.407  render           | Saved: 'C:\Users\Vlad\Documents\ChatGPT\Jem 11\ArtSource\WeepingGirl\standing.png'
+00:28.860  render           | Saved: 'C:\Users\Vlad\Documents\ChatGPT\Jem 11\ArtSource\WeepingGirl\seated.png'
+00:46.828  render           | Saved: 'C:\Users\Vlad\Documents\ChatGPT\Jem 11\ArtSource\WeepingGirl\attack.png'
+01:07.438  render           | Saved: 'C:\Users\Vlad\Documents\ChatGPT\Jem 11\ArtSource\WeepingGirl\face.png'
+01:20.344  render           | Saved: 'C:\Users\Vlad\Documents\ChatGPT\Jem 11\ArtSource\WeepingGirl\lookup.png'
+
+FBX export starting... 'C:\\Users\\Vlad\\Documents\\ChatGPT\\Jem 11\\Lighthouse\\Assets\\Art\\WeepingGirl\\Models\\WeepingGirl.fbx'
+export finished in 0.1525 sec.
+Info: Saved as "WeepingGirl.blend"
+Info: Saved as "WeepingGirl.blend"
+WEEPING_GIRL_EXPORTED {"vertices": 45892, "faces": 44548, "shape_keys": ["Basis", "Seated", "Attack", "LookUp"], "lookup_degrees": 32, "materials": ["Girl_Cloth", "Girl_Hair", "Girl_Skin", "Girl_Dark", "Girl_Eyes"], "source_front": "-Y", "source_up": "Z", "bounds": {"0": {"min": [-0.2650564908981323, -0.19647769629955292, 0.0], "max": [0.26417580246925354, 0.1375150978565216, 1.3572455644607544]}, "1": {"min": [-0.27319297194480896, -0.5766915082931519, 0.00299999862909317], "max": [0.27287593483924866, 0.006405472755432129, 1.0309982299804688]}, "2": {"min": [-0.4007897973060608, -0.6593050956726074, 0.0010000020265579224], "max": [0.4007897973060608, 0.24372385442256927, 1.3177443742752075]}}}
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

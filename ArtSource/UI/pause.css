@@ -1,0 +1,67 @@
+#pause-dialog {
+  box-sizing: border-box;
+  width: min(416px, calc(100vw - 40px));
+  max-width: none;
+  max-height: calc(100dvh - 32px);
+  margin: auto;
+  padding: 0;
+  border: 1px solid #aaa58a65;
+  border-radius: 0;
+  background: #122126f7;
+  color: #eee5ce;
+  box-shadow: 0 20px 80px #02080b80;
+  overflow: auto;
+  font-family: var(--font-ui);
+}
+#pause-dialog::backdrop { background: #030b1173; }
+#pause-dialog[open] { animation: pause-appear 140ms ease-out; }
+.pause-sheet { padding: 36px 52px 30px; }
+#pause-title {
+  margin: 0 0 30px;
+  font: 500 62px/1.08 var(--font-display);
+  letter-spacing: .01em;
+}
+.pause-actions { display: flex; flex-direction: column; align-items: stretch; gap: 12px; }
+.pause-actions button {
+  position: relative;
+  min-height: 48px;
+  padding: 8px 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  color: #d8dccf;
+  text-align: left;
+  font: 500 16px/1.4 var(--font-ui);
+  text-transform: uppercase;
+  letter-spacing: .09em;
+  cursor: pointer;
+  transition: color 120ms;
+}
+.pause-actions button::before {
+  content: "";
+  position: absolute;
+  left: -23px;
+  top: calc(50% - 4px);
+  width: 12px;
+  height: 8px;
+  background: #d2b77f;
+  clip-path: polygon(0 0, 5px 0, 12px 4px, 5px 8px, 0 8px, 7px 4px);
+  opacity: 0;
+  transform: translateX(-3px);
+  transition: opacity 100ms, transform 120ms;
+}
+.pause-actions button:hover, .pause-actions button:focus-visible { color: #fff2cd; }
+.pause-actions button:hover::before, .pause-actions button:focus-visible::before { opacity: 1; transform: none; }
+.pause-actions button:focus-visible { outline: 1px solid #cdbb8c85; outline-offset: 5px; }
+.pause-actions button:active { color: #b8a67b; }
+.pause-return { display: flex; align-items: center; gap: 11px; margin-top: 34px; color: #a3b0ab; font-size: 12px; }
+.pause-return kbd { padding: 4px 7px; border: 1px solid #a4b0a34d; border-radius: 0; background: none; box-shadow: none; font: 11px var(--font-ui); color: #ced3bf; }
+#pause-dialog.is-settings { width: 100vw; height: 100dvh; max-height: none; border: 0; background: #071015b0; box-shadow: none; overflow: hidden; }
+#pause-dialog.is-settings .pause-sheet { display: none; }
+#pause-settings-frame { width: 100%; height: 100%; border: 0; display: block; }
+#pause-settings-frame[hidden] { display: none; }
+#game.game-paused, #game.game-paused *, #game.game-paused *::before, #game.game-paused *::after { animation-play-state: paused !important; }
+@keyframes pause-appear { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+@media (max-width: 480px) { .pause-sheet { padding: 30px 38px 27px; } #pause-title { font-size: 56px; } }
+@media (max-height: 400px) { .pause-sheet { padding-top: 20px; padding-bottom: 20px; } #pause-title { margin-bottom: 14px; font-size: 48px; } .pause-return { margin-top: 18px; } .pause-actions { gap: 4px; } }
+@media (prefers-reduced-motion: reduce) { #pause-dialog[open] { animation: none; } .pause-actions button, .pause-actions button::before { transition: none; } }

@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Маяк — главное меню, настройки и лучшие снимки.">
+  <title>Маяк — главное меню</title>
+  <link rel="icon" href="assets/lighthouse.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="menu.css">
+  <link rel="stylesheet" href="menu-settings.css">
+  <script src="menu-state.js" defer></script>
+  <script src="menu-sea.js" defer></script>
+  <script src="menu-controls.js" defer></script>
+  <script src="menu.js" defer></script>
+</head>
+<body data-screen="home" data-background="sea">
+  <div id="seascape" aria-hidden="true">
+    <img id="sea-fallback" src="assets/menu-simulation-poster.jpg" alt="">
+    <video id="sea-video" src="assets/menu-simulation.mp4" poster="assets/menu-simulation-poster.jpg" autoplay loop muted playsinline preload="auto" tabindex="-1"></video>
+    <canvas id="sea-canvas"></canvas>
+    <div class="sea-shade"></div>
+    <div class="sea-grain"></div>
+  </div>
+  <svg class="symbols" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs>
+    <symbol id="arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></symbol>
+    <symbol id="back" viewBox="0 0 24 24"><path d="M20 12H5m6-6-6 6 6 6"/></symbol>
+    <symbol id="close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+    <symbol id="photo" viewBox="0 0 32 32"><path d="M4 3h24v26H4zM8 7h16v16H8zM8 19l6-6 5 5 2-2 3 3M12 26h8"/></symbol>
+    <symbol id="speaker" viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4zM17 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14"/></symbol>
+    <symbol id="compass" viewBox="0 0 80 80"><circle cx="40" cy="40" r="28"/><circle cx="40" cy="40" r="32" stroke-dasharray="1 5.28"/><path d="M40 0v12m0 56v12M0 40h12m56 0h12M17 17l9 9m28 28 9 9M17 63l9-9m28-28 9-9M40 12l6 22 22 6-22 6-6 22-6-22-22-6 22-6z"/><path d="M40 12v28h28M12 40h28v28"/><circle cx="40" cy="40" r="3"/></symbol>
+  </defs></svg>
+
+  <main id="menu">
+    <section id="home" class="screen home" aria-labelledby="game-title">
+      <div class="home-content">
+        <h1 id="game-title" aria-label="Маяк"><img class="wordmark" src="assets/mayak-wordmark-v2.svg" alt="Маяк — щупальца продолжают штрихи М, башня маяка образует стойку Я"></h1>
+        <nav class="main-nav" aria-label="Главное меню">
+          <button class="nav-item play-button" data-route="play"><span>Играть</span><svg><use href="#arrow"/></svg></button>
+          <button class="nav-item" data-route="settings"><span>Настройки</span><svg><use href="#arrow"/></svg></button>
+          <button class="nav-item" data-route="gallery"><span>Лучшие снимки</span><svg><use href="#arrow"/></svg></button>
+          <button class="nav-item quit-button" id="quit-button"><span>Выйти из игры</span><svg><use href="#arrow"/></svg></button>
+        </nav>
+      </div>
+    </section>
+
+    <section id="settings" class="screen inner-screen" aria-labelledby="settings-title" hidden>
+      <form id="settings-form" class="settings-layout" data-section="audio">
+        <header class="settings-heading">
+          <button type="button" class="settings-back" data-route="home">Назад</button>
+          <h2 id="settings-title" tabindex="-1">Настройки</h2>
+        </header>
+        <nav class="settings-tabs" role="tablist" aria-label="Разделы настроек" aria-orientation="horizontal">
+          <button type="button" id="tab-audio" role="tab" aria-selected="true" aria-controls="panel-audio" data-tab="audio">Звук</button>
+          <button type="button" id="tab-video" role="tab" aria-selected="false" aria-controls="panel-video" data-tab="video" tabindex="-1">Изображение</button>
+          <button type="button" id="tab-controls" role="tab" aria-selected="false" aria-controls="panel-controls" data-tab="controls" tabindex="-1">Управление</button>
+        </nav>
+        <div class="settings-workspace">
+        <div class="settings-content">
+          <section id="panel-audio" class="settings-panel" role="tabpanel" aria-labelledby="tab-audio">
+            <div class="setting-row"><label for="master">Общая громкость</label><div class="range-control"><input id="master" name="master" type="range" min="0" max="100" step="1"><output for="master"></output></div></div>
+            <div class="setting-row"><label for="ambience">Окружение<small>Музыка меню, море, ветер и дождь</small></label><div class="range-control"><input id="ambience" name="ambience" type="range" min="0" max="100" step="1"><output for="ambience"></output></div></div>
+            <div class="setting-row"><label for="effects">Эффекты<small>Камера, оборудование и события</small></label><div class="range-control"><input id="effects" name="effects" type="range" min="0" max="100" step="1"><output for="effects"></output></div></div>
+            <button type="button" id="test-audio" class="text-button audio-test"><svg><use href="#speaker"/></svg>Проверить звук</button>
+          </section>
+          <section id="panel-video" class="settings-panel" role="tabpanel" aria-labelledby="tab-video" hidden>
+            <div class="setting-row"><label for="display">Режим экрана</label><select id="display" name="display"><option value="borderless">Без рамки</option><option value="fullscreen">Полный экран</option><option value="windowed">В окне</option></select></div>
+            <div class="setting-row"><label for="resolution">Разрешение</label><select id="resolution" name="resolution"><option value="1280x720">1280 × 720</option><option value="1920x1080">1920 × 1080</option><option value="2560x1440">2560 × 1440</option><option value="3840x2160">3840 × 2160</option></select></div>
+            <div class="setting-row"><label for="vsync">Вертикальная синхронизация</label><label class="toggle"><input id="vsync" name="vsync" type="checkbox"><span aria-hidden="true"></span><b data-value="vsync"></b></label></div>
+            <div class="setting-row" id="fps-row"><label for="fps">Лимит кадров<small id="fps-help">При включённой синхронизации — частота экрана</small></label><select id="fps" name="fps" aria-describedby="fps-help"><option value="30">30 FPS</option><option value="60">60 FPS</option><option value="120">120 FPS</option><option value="144">144 FPS</option><option value="0">Без ограничения</option></select></div>
+            <div class="setting-row"><label for="brightness">Яркость</label><div class="range-control"><input id="brightness" name="brightness" type="range" min="70" max="130" step="1"><output for="brightness"></output></div></div>
+            <div class="setting-row"><label for="glitches">Сбои фона<small>Редкие красные помехи в главном меню</small></label><label class="toggle"><input id="glitches" name="glitches" type="checkbox"><span aria-hidden="true"></span><b data-value="glitches"></b></label></div>
+          </section>
+          <section id="panel-controls" class="settings-panel" role="tabpanel" aria-labelledby="tab-controls" hidden>
+            <div class="setting-row"><label for="sensitivity">Чувствительность мыши</label><div class="range-control"><input id="sensitivity" name="sensitivity" type="range" min="0.2" max="3" step="0.1"><output for="sensitivity"></output></div></div>
+            <div class="setting-row"><label for="invertY">Инверсия по вертикали</label><label class="toggle"><input id="invertY" name="invertY" type="checkbox"><span aria-hidden="true"></span><b data-value="invertY"></b></label></div>
+            <dl class="key-list">
+              <div><dt>Движение</dt><dd><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></dd></div>
+              <div><dt>Бег / прыжок</dt><dd><kbd>Shift</kbd><kbd>Пробел</kbd></dd></div>
+              <div><dt>Фотографии в руке</dt><dd><kbd>1</kbd><span>—</span><kbd>5</kbd></dd></div>
+              <div><dt>Личный фонарь</dt><dd><kbd>Q</kbd></dd></div>
+              <div><dt>Достать / убрать камеру</dt><dd><kbd>E</kbd></dd></div>
+              <div><dt>Взаимодействие</dt><dd><kbd>F</kbd></dd></div>
+              <div><dt>Снимок / приближение</dt><dd><kbd>ЛКМ</kbd><kbd>ПКМ</kbd></dd></div>
+              <div><dt>Скрыть / вернуть UI</dt><dd><kbd>Tab</kbd></dd></div>
+            </dl>
+          </section>
+        </div>
+        <footer class="settings-footer">
+          <button type="button" id="reset-settings" class="settings-action">По умолчанию</button>
+          <button type="submit" id="apply-settings" class="settings-action" disabled>Применить</button>
+          <span id="settings-status" role="status" aria-live="polite"></span>
+        </footer>
+        </div>
+      </form>
+    </section>
+
+    <section id="gallery" class="screen inner-screen gallery-screen" aria-labelledby="gallery-title" hidden>
+      <div class="sea-chart" aria-hidden="true"></div>
+      <header class="screen-header">
+        <button class="back-button" data-route="home"><svg><use href="#back"/></svg><span>Назад</span></button>
+        <div class="gallery-heading"><div class="archive-title"><svg class="archive-compass" aria-hidden="true"><use href="#compass"/></svg><h2 id="gallery-title" tabindex="-1">Лучшие снимки</h2></div><div class="record"><span>Лучший результат за все игры</span><strong id="best-score">480 <small>очков</small></strong></div></div>
+      </header>
+      <div class="gallery-meta"><span>По прибыльности</span><span id="archive-note">Демонстрационные данные</span></div>
+      <div id="photo-grid" class="photo-grid"></div>
+      <div id="empty-archive" class="empty-archive" hidden><svg><use href="#photo"/></svg><h3>Снимков пока нет</h3><p>Самые прибыльные фотографии появятся здесь после съёмки.</p><button class="solid-button" data-route="play">Играть<svg><use href="#arrow"/></svg></button></div>
+    </section>
+
+    <section id="play" class="screen play-screen" aria-label="Просмотр игрового интерфейса" hidden>
+      <iframe id="game-preview" title="Утверждённый макет игрового интерфейса" tabindex="0"></iframe>
+      <button class="play-return back-button" data-route="home"><svg><use href="#back"/></svg><span>В меню</span></button>
+      <span class="prototype-label">Просмотр HUD</span>
+    </section>
+    <section id="exit" class="screen exit-screen" aria-label="Выход из игры" hidden><div><h2>Выход из игры</h2><p>Веб-макет завершён.</p><button class="text-button" data-route="home">Вернуться в меню<svg><use href="#arrow"/></svg></button></div></section>
+  </main>
+
+  <dialog id="photo-viewer" aria-labelledby="viewer-title">
+    <div class="viewer-top"><span id="viewer-position"></span><button id="close-viewer" class="icon-button" aria-label="Закрыть снимок" data-tip="Закрыть · Esc"><svg><use href="#close"/></svg></button></div>
+    <div class="viewer-image-wrap"><img id="viewer-image" alt=""><div id="viewer-missing" hidden>Изображение недоступно</div><button id="previous-photo" class="icon-button viewer-prev" aria-label="Предыдущий снимок" data-tip="Предыдущий снимок · ←"><svg><use href="#back"/></svg></button><button id="next-photo" class="icon-button viewer-next" aria-label="Следующий снимок" data-tip="Следующий снимок · →"><svg><use href="#arrow"/></svg></button></div>
+    <div class="viewer-info"><div><h3 id="viewer-title"></h3><p id="viewer-subjects"></p></div><strong id="viewer-price"></strong></div>
+  </dialog>
+  <dialog id="quit-dialog" class="quit-dialog" aria-labelledby="quit-title"><h2 id="quit-title">Выйти из игры?</h2><div class="dialog-actions"><button id="cancel-quit" class="text-button" autofocus>Остаться</button><button id="confirm-quit" class="solid-button">Выйти</button></div></dialog>
+  <div id="tooltip" role="tooltip" hidden></div>
+  <div id="toast" role="status" aria-live="polite" hidden></div>
+  <audio id="menu-waves" src="assets/menu-ocean.ogg" preload="none" loop></audio>
+  <audio id="menu-music" src="assets/menu-music.mp3" preload="none" loop></audio>
+  <audio id="menu-effects" src="assets/menu-shutter.wav" preload="none"></audio>
+  <aside id="review-controls" hidden aria-label="Проверка макета"><span>HTML · просмотр</span><button id="review-glitch">Красный сбой</button><button id="review-empty">Пустой архив</button></aside>
+  <noscript>Для интерактивного меню включите JavaScript в браузере.</noscript>
+</body>
+</html>

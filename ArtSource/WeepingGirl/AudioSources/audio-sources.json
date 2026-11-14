@@ -1,0 +1,233 @@
+{
+  "retrievedOn": "2026-11-14",
+  "scope": "Recorded human weeping and recorded radio noise for the revised stare/interference encounter; no synthesized voices or jump/impact sound",
+  "subjectiveAudition": "Not performed by the agent. Source selection is based on creator descriptions, licence verification and measured signal data; a human in-game listening check remains required.",
+  "sources": [
+    {
+      "id": "alucardsbride_172738",
+      "title": "crying woman.wav",
+      "author": "AlucardsBride",
+      "sourceUrl": "https://freesound.org/people/AlucardsBride/sounds/172738/",
+      "mirrorPage": "https://commons.wikimedia.org/wiki/File:Cry_of_woman.ogg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Cry_of_woman.ogg",
+      "file": "ArtSource/WeepingGirl/AudioSources/AlucardsBride_Cry_of_woman.ogg",
+      "bytes": 447772,
+      "sha256": "88d57d1dc3356688409b246971ee134b8aaed2595fbfcf63209f801bb0cd2f0e",
+      "representation": "Full-duration OGG copy published on Wikimedia Commons, not the original Freesound WAV",
+      "durationSeconds": 26.540408,
+      "license": "CC0 1.0 Universal",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "attributionRequired": false,
+      "credit": "crying woman.wav by AlucardsBride (Freesound), CC0 1.0; OGG copy from Wikimedia Commons",
+      "recordingEvidence": "Author describes a woman crying softly with trembling breaths.",
+      "evidenceFiles": [
+        "crying-woman-freesound.html",
+        "crying-woman-commons.html"
+      ],
+      "selected": true
+    },
+    {
+      "id": "lukacafuka_760335",
+      "title": "Radio static",
+      "author": "LukaCafuka",
+      "sourceUrl": "https://freesound.org/people/LukaCafuka/sounds/760335/",
+      "downloadUrl": "https://cdn.freesound.org/previews/760/760335_16236894-hq.mp3",
+      "file": "ArtSource/WeepingGirl/AudioSources/LukaCafuka_Radio_static_HQPreview.mp3",
+      "bytes": 753792,
+      "sha256": "c1de2cf24bf804ef89028c5fbbb4a20293a0cac2893fb9899da13ae00ebe4764",
+      "representation": "Full-duration public Freesound HQ MP3 preview; original WAV requires an account and was not downloaded",
+      "durationSeconds": 33.408,
+      "license": "CC0 1.0 Universal",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "attributionRequired": false,
+      "credit": "Radio static by LukaCafuka (Freesound), CC0 1.0",
+      "recordingEvidence": "Author identifies an ELBEX GT 410 walkie-talkie recorded via direct line-out with a Zoom H1n.",
+      "evidenceFiles": [
+        "radio-static-freesound.html"
+      ],
+      "selected": true
+    },
+    {
+      "id": "mvvoiceacting_218184",
+      "title": "Girl Crying",
+      "author": "mvVoiceActing",
+      "sourceUrl": "https://freesound.org/people/mvVoiceActing/sounds/218184/",
+      "downloadUrl": "https://cdn.freesound.org/previews/218/218184_3298571-hq.mp3",
+      "file": "ArtSource/WeepingGirl/AudioSources/mvVoiceActing_Girl_Crying_HQPreview.mp3",
+      "bytes": 795649,
+      "sha256": "0f03b4a4fabec4afa8da55595fd007af89d80c2ac2b45d94d8fb738c9b73952e",
+      "representation": "Full-duration public Freesound HQ MP3 preview; original WAV requires an account and was not downloaded",
+      "durationSeconds": 34.783,
+      "license": "CC0 1.0 Universal",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "attributionRequired": false,
+      "credit": "Girl Crying by mvVoiceActing (Freesound), CC0 1.0",
+      "recordingEvidence": "The author states this is her own performance crying like a little girl.",
+      "evidenceFiles": [
+        "girl-crying-freesound.html"
+      ],
+      "selected": false,
+      "selectionNote": "Alternative source retained for human audition; not used in the prepared runtime WAVs"
+    },
+    {
+      "id": "joviansounds_524204",
+      "title": "Radio Static",
+      "author": "JovianSounds",
+      "sourceUrl": "https://freesound.org/people/JovianSounds/sounds/524204/",
+      "downloadUrl": "https://cdn.freesound.org/previews/524/524204_9561949-hq.mp3",
+      "file": "ArtSource/WeepingGirl/AudioSources/JovianSounds_Radio_Static_HQPreview.mp3",
+      "bytes": 123965,
+      "sha256": "77208ff2f2098e348c65e95c269fa1cea088b34dea0f5df768499e61781db675",
+      "representation": "Full-duration public Freesound HQ MP3 preview; original WAV requires an account and was not downloaded",
+      "durationSeconds": 6.169,
+      "license": "CC0 1.0 Universal",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "attributionRequired": false,
+      "credit": "Radio Static by JovianSounds (Freesound), CC0 1.0",
+      "recordingEvidence": "The author's description identifies background static of a walkie-talkie radio.",
+      "evidenceFiles": [
+        "radio-static-jovian-freesound.html",
+        "jovian-spectrum.png"
+      ],
+      "selected": true,
+      "selectionNote": "Used for the continuous dense static layer; cropped to avoid source start transient and trailing silence"
+    },
+    {
+      "id": "wwstudioswastaken_625094",
+      "title": "radio_static_02.flac",
+      "author": "wwstudioswastaken",
+      "sourceUrl": "https://freesound.org/people/wwstudioswastaken/sounds/625094/",
+      "downloadUrl": "https://cdn.freesound.org/previews/625/625094_13582756-hq.mp3",
+      "file": "ArtSource/WeepingGirl/AudioSources/wwstudioswastaken_Radio_static_02_HQPreview.mp3",
+      "bytes": 944784,
+      "sha256": "59d7b9787d9e126595101e593888be9de7db518f6a3ceea082201a3e1433226d",
+      "representation": "Full-duration public Freesound HQ MP3 preview; original FLAC requires an account and was not downloaded",
+      "durationSeconds": 35.436,
+      "license": "CC0 1.0 Universal",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "attributionRequired": false,
+      "credit": "radio_static_02.flac by wwstudioswastaken (Freesound), CC0 1.0",
+      "recordingEvidence": "The author explicitly states that a radio tuned to no particular station was recorded.",
+      "evidenceFiles": [
+        "radio-static-wwstudios-freesound.html",
+        "wwstudios-spectrum.png"
+      ],
+      "selected": false,
+      "selectionNote": "Retained candidate; the inspected spectrum contains stronger narrow bands and level variation than the selected JovianSounds recording"
+    }
+  ],
+  "derivatives": [
+    {
+      "file": "Lighthouse/Assets/Art/WeepingGirl/Audio/Girl_Weeping_Recorded.wav",
+      "bytes": 2253588,
+      "sha256": "52c4cf0828390378361df240bfa02705ae3ecca062f4587a0156c9da2f401d49",
+      "durationSeconds": 25.55,
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitsPerSample": 16,
+      "peak": 0.5157440304756165,
+      "peakDbfs": -5.751315802103605,
+      "rmsDbfs": -20.60262391411754,
+      "overFullScaleSamples": 0,
+      "loopSeamDifference": 0.00004560736124403775,
+      "largestAdjacentSampleDifference": 0.2934751119464636,
+      "crossfadeSeconds": 0.3,
+      "crossfadeMethod": "Equal-power tail/head overlap; original recorded samples only",
+      "sourceId": "alucardsbride_172738",
+      "sourceRegionSeconds": [
+        0.35,
+        26.2
+      ],
+      "processing": [
+        "Stereo to mono average",
+        "85 Hz high-pass",
+        "7500 Hz low-pass",
+        "Gain -8 dB before PCM conversion; original pitch and timing preserved",
+        "0.3 s equal-power tail/head loop splice"
+      ],
+      "filter": "atrim=start=0.35:end=26.2,asetpts=PTS-STARTPTS,pan=mono|c0=0.5*c0+0.5*c1,highpass=f=85,lowpass=f=7500,volume=-8dB",
+      "pcmVerification": {
+        "frames": 1126755,
+        "durationSeconds": 25.55,
+        "peak": 0.5157470703125,
+        "peakDbfs": -5.751264606920888,
+        "rmsDbfs": -20.60262372418027,
+        "clippedSamples": 0,
+        "seamSampleDifference": 0.000030517578125
+      }
+    },
+    {
+      "file": "Lighthouse/Assets/Art/WeepingGirl/Audio/Girl_Static_Recorded.wav",
+      "bytes": 1389228,
+      "sha256": "ce466f5e4f8fed6933f40f2b2a6f39bf5be042107f00384ae2b87f0b743306e6",
+      "durationSeconds": 15.75,
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitsPerSample": 16,
+      "peak": 0.5196790099143982,
+      "peakDbfs": -5.68529648372547,
+      "rmsDbfs": -28.359345548390515,
+      "overFullScaleSamples": 0,
+      "loopSeamDifference": 0.000554391648620367,
+      "largestAdjacentSampleDifference": 0.13729283958673477,
+      "crossfadeSeconds": 0.25,
+      "crossfadeMethod": "Equal-power tail/head overlap; original recorded samples only",
+      "sourceId": "lukacafuka_760335",
+      "sourceRegionSeconds": [
+        1,
+        17
+      ],
+      "processing": [
+        "160 Hz high-pass",
+        "6500 Hz low-pass",
+        "Gain -6 dB; no synthetic noise layers",
+        "0.25 s equal-power tail/head loop splice",
+        "Resampled to 44.1 kHz mono"
+      ],
+      "filter": "atrim=start=1:end=17,asetpts=PTS-STARTPTS,highpass=f=160,lowpass=f=6500,volume=-6dB",
+      "pcmVerification": {
+        "frames": 694575,
+        "durationSeconds": 15.75,
+        "peak": 0.519683837890625,
+        "peakDbfs": -5.685215789541008,
+        "rmsDbfs": -28.359346237918174,
+        "clippedSamples": 0,
+        "seamSampleDifference": 0.000579833984375
+      }
+    },
+    {
+      "file": "Lighthouse/Assets/Art/WeepingGirl/Audio/Girl_Static_Dense.wav",
+      "bytes": 374928,
+      "sha256": "37acbfda87b3ef4bf93ffb4fb8671c1322facb91f9f2e7decc16074cbd3ba73a",
+      "sourceId": "joviansounds_524204",
+      "durationSeconds": 4.25,
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitsPerSample": 16,
+      "sourceRegionSeconds": [
+        0.35,
+        4.9
+      ],
+      "crossfadeSeconds": 0.3,
+      "processing": [
+        "Discard beginning transient and trailing silence",
+        "Stereo to mono average",
+        "130 Hz high-pass and 7000 Hz low-pass",
+        "Equal-power 0.3 s tail/head loop splice from recorded samples",
+        "Fixed gain normalization to -17 dBFS RMS with a -0.8 dBFS peak ceiling; no synthesis or added tone"
+      ],
+      "gainDb": 14.058776318584169,
+      "compressionUsed": false,
+      "pcmVerification": {
+        "peakDbfs": -1.979517117189943,
+        "rmsDbfs": -17.000000565203457,
+        "clippedSamples": 0,
+        "seamSampleDifference": 0.09930419921875,
+        "windowMs": 100,
+        "quietestWindowRmsDbfs": -17.646103924760567,
+        "loudestWindowRmsDbfs": -16.296980676585726
+      },
+      "spectralObservation": "The inspected source spectrogram is broadly filled through the radio bandwidth with no prominent narrow stationary whistle line; this is a visual signal observation, not subjective listening."
+    }
+  ]
+}

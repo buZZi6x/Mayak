@@ -1,0 +1,52 @@
+{
+  "pass": true,
+  "same_topology": true,
+  "same_material_order": true,
+  "same_shape_names": true,
+  "vertex_count": 58339,
+  "max_noncloth_delta_by_shape": {
+    "Basis": 0.0,
+    "Rise_00": 0.0,
+    "Rise_01": 0.0,
+    "Rise_02": 0.0,
+    "Rise_03": 0.0,
+    "Rise_04": 0.0,
+    "Rise_05": 0.0,
+    "Rise_06": 0.0,
+    "Rise_07": 0.0,
+    "Rise_08": 0.0,
+    "Seated": 0.0,
+    "LookUp": 0.0,
+    "LookDown": 0.0,
+    "LookLeft": 0.0,
+    "LookRight": 0.0,
+    "Sob": 0.0
+  },
+  "max_delta_by_shape_m": {
+    "Basis": 0.0,
+    "Rise_00": 0.12000003389392812,
+    "Rise_01": 0.11798428029028903,
+    "Rise_02": 0.1153535549871454,
+    "Rise_03": 0.10232844747916862,
+    "Rise_04": 0.07873198331976801,
+    "Rise_05": 0.059395357299951164,
+    "Rise_06": 0.02415539324121355,
+    "Rise_07": 0.013125032369184884,
+    "Rise_08": 0.0,
+    "Seated": 0.12000003389392812,
+    "LookUp": 0.0,
+    "LookDown": 0.0,
+    "LookLeft": 0.0,
+    "LookRight": 0.0,
+    "Sob": 0.0
+  },
+  "unchanged_basis_and_optional_keys": {
+    "Basis": 0.0,
+    "Rise_08": 0.0,
+    "LookUp": 0.0,
+    "LookDown": 0.0,
+    "LookLeft": 0.0,
+    "LookRight": 0.0,
+    "Sob": 0.0
+  }
+}

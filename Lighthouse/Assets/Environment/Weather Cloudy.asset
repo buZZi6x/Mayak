@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b45ae9484704f394badb48efbb5a042d, type: 3}
+  m_Name: Weather Cloudy
+  m_EditorClassIdentifier: Assembly-CSharp::LighthouseGame.CoastalWeatherPreset
+  Kind: 1
+  DisplayName: "\u041E\u0431\u043B\u0430\u0447\u043D\u043E"
+  WindKph: 26
+  CloudDensity: 0.46
+  CloudShape: 0.78
+  CloudErosion: 0.75
+  CloudAltitude: 1100
+  CloudDepth: 2600
+  Visibility: 7500
+  Rain: 0
+  Wetness: 0.15
+  Foam: 0.2
+  SunDimmer: 0.75
+  Swell: 1
+  FogTint: {r: 0.75, g: 0.85, b: 0.92, a: 1}

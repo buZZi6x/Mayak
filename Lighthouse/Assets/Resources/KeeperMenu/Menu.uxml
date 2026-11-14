@@ -1,0 +1,60 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:game="LighthouseGame">
+  <ui:VisualElement name="menu" class="menu-root">
+    <ui:VisualElement name="home" class="page home-page">
+      <ui:VisualElement class="home-content">
+        <ui:Image name="wordmark" class="wordmark" />
+        <ui:Button name="play" class="nav-item play-item"><ui:Label text="ИГРАТЬ" picking-mode="Ignore" /><ui:Image class="nav-pointer" picking-mode="Ignore" /><game:MenuRule class="nav-rule" /></ui:Button>
+        <ui:Button name="open-settings" class="nav-item"><ui:Label text="НАСТРОЙКИ" picking-mode="Ignore" /><ui:Image class="nav-pointer" picking-mode="Ignore" /><game:MenuRule class="nav-rule" /></ui:Button>
+        <ui:Button name="open-gallery" class="nav-item"><ui:Label text="ЛУЧШИЕ СНИМКИ" picking-mode="Ignore" /><ui:Image class="nav-pointer" picking-mode="Ignore" /><game:MenuRule class="nav-rule" /></ui:Button>
+        <ui:Button name="quit" class="nav-item quit-item"><ui:Label text="ВЫЙТИ ИЗ ИГРЫ" picking-mode="Ignore" /><ui:Image class="nav-pointer" picking-mode="Ignore" /><game:MenuRule class="nav-rule" /></ui:Button>
+      </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:ScrollView name="settings" class="page page-scroll hidden" horizontal-scroller-visibility="Hidden">
+      <ui:Button name="settings-back" text="Назад" class="settings-back" />
+      <ui:VisualElement name="settings-form" class="settings-form">
+        <ui:Label text="Настройки" class="settings-title" />
+        <ui:VisualElement name="settings-tabs" class="settings-tabs">
+          <ui:VisualElement class="tab-slot audio-tab-slot"><ui:Button name="tab-audio" class="settings-tab active"><ui:Label text="Звук" picking-mode="Ignore" /><game:OpticalFrame class="tab-corners" /></ui:Button></ui:VisualElement>
+          <ui:VisualElement class="tab-slot video-tab-slot"><ui:Button name="tab-video" class="settings-tab"><ui:Label text="Изображение" picking-mode="Ignore" /><game:OpticalFrame class="tab-corners" /></ui:Button></ui:VisualElement>
+          <ui:VisualElement class="tab-slot controls-tab-slot"><ui:Button name="tab-controls" class="settings-tab"><ui:Label text="Управление" picking-mode="Ignore" /><game:OpticalFrame class="tab-corners" /></ui:Button></ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="settings-workspace" class="settings-workspace">
+          <game:OpticalFrame class="workspace-corners" />
+          <ui:VisualElement name="settings-content" class="settings-content">
+            <ui:VisualElement name="panel-audio" class="settings-panel audio-panel" />
+            <ui:VisualElement name="panel-video" class="settings-panel dense-panel hidden" />
+            <ui:VisualElement name="panel-controls" class="settings-panel dense-panel hidden" />
+          </ui:VisualElement>
+          <ui:VisualElement class="settings-footer">
+            <ui:Button name="reset-settings" text="По умолчанию" class="settings-action" />
+            <ui:Button name="apply-settings" text="Применить" class="settings-action apply-action" />
+            <ui:Label name="settings-status" class="settings-status" />
+          </ui:VisualElement>
+        </ui:VisualElement>
+      </ui:VisualElement>
+    </ui:ScrollView>
+    <ui:ScrollView name="gallery" class="page gallery-page hidden" horizontal-scroller-visibility="Hidden">
+      <ui:Image name="sea-chart" class="sea-chart" picking-mode="Ignore" />
+      <ui:Button name="gallery-back" class="gallery-back"><ui:Image class="icon icon-back" picking-mode="Ignore" /><ui:Label text="НАЗАД" picking-mode="Ignore" /></ui:Button>
+      <ui:VisualElement class="gallery-heading">
+        <ui:VisualElement class="archive-heading"><ui:Image class="archive-compass" picking-mode="Ignore" /><ui:Label text="Лучшие снимки" class="gallery-title" /></ui:VisualElement>
+        <ui:VisualElement class="record"><ui:Label text="Лучший результат за все игры" class="record-label" /><ui:Label name="best-score" class="best-score" /></ui:VisualElement>
+      </ui:VisualElement>
+      <ui:Label text="По прибыльности" class="gallery-meta" />
+      <ui:Label name="archive-status" class="archive-status" />
+      <ui:VisualElement name="photo-grid" class="photo-grid" />
+      <ui:VisualElement name="empty-archive" class="empty-archive"><ui:Image class="empty-photo" picking-mode="Ignore" /><ui:Label text="Снимков пока нет" class="empty-title" /><ui:Label text="Самые прибыльные фотографии появятся здесь после съёмки." class="empty-copy" /><ui:Button name="empty-play" text="Играть" class="solid-action" /></ui:VisualElement>
+    </ui:ScrollView>
+    <ui:VisualElement name="photo-viewer" class="overlay hidden">
+      <ui:VisualElement class="viewer-panel">
+        <ui:VisualElement class="viewer-top"><ui:Label name="viewer-position" /><ui:Button name="viewer-close" text="×" class="viewer-close" /></ui:VisualElement>
+        <ui:VisualElement class="viewer-image-wrap"><ui:Image name="viewer-image" /><ui:Label name="viewer-missing" text="Изображение недоступно" /><ui:Button name="viewer-prev" class="viewer-prev"><ui:Image class="icon icon-back" picking-mode="Ignore" /></ui:Button><ui:Button name="viewer-next" class="viewer-next"><ui:Image class="icon icon-next" picking-mode="Ignore" /></ui:Button></ui:VisualElement>
+        <ui:VisualElement class="viewer-info"><ui:VisualElement class="viewer-copy"><ui:Label name="viewer-title" /><ui:Label name="viewer-subjects" /></ui:VisualElement><ui:Label name="viewer-price" /></ui:VisualElement>
+      </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="dialog" class="overlay hidden">
+      <ui:VisualElement class="dialog-panel"><ui:Label name="dialog-title" class="dialog-title" /><ui:Label name="dialog-copy" class="dialog-copy" /><ui:VisualElement class="dialog-actions"><ui:Button name="dialog-cancel" class="dialog-action" /><ui:Button name="dialog-confirm" class="solid-action" /></ui:VisualElement></ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="choice-popup" class="choice-popup hidden" />
+  </ui:VisualElement>
+</ui:UXML>

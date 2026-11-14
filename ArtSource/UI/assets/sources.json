@@ -1,0 +1,16 @@
+{
+  "purpose": "Actual project screenshots used as local UI approval references. No remote art or generated scene imagery.",
+  "root": "Lighthouse/Screenshots/",
+  "files": {
+    "sea.png": "Marine/V03-Beacon-ON.png",
+    "aurora.png": "Marine/V03-Aurora.png",
+    "kraken.png": "Marine/V02-Ship1-grip.png",
+    "door.png": "Art/01-FPS-Entrance.png",
+    "lamp.png": "Art/04-FPS-Lamp.png",
+    "radio.png": "Art/03-FPS-Radio.png",
+    "bed.png": "Art/05-FPS-Bed.png",
+    "telescope.png": "Art/06-FPS-Telescope.png"
+  },
+  "icons": "Original inline SVG symbols in index.html and lighthouse.svg.",
+  "copied_on": "2026-11-14"
+}
