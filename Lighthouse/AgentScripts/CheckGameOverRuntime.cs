@@ -26,7 +26,6 @@ public static class CheckGameOverRuntime
     private static BlockoutSession _session;
     private static BlockoutHUD _hud;
     private static Keyboard _keyboard;
-    private static Mouse _mouse;
     private static bool _hadBest;
     private static int _savedBest;
     private static string _output;
@@ -93,12 +92,12 @@ public static class CheckGameOverRuntime
         var position = element.worldBound.center;
         var hit = _hud.Root.panel.Pick(position);
         Check(hit == element || element.Contains(hit), "Hit testing resolves " + name);
-        var screen = new Vector2(position.x, Screen.height - position.y);
-        InputSystem.QueueStateEvent(_mouse, new MouseState { position = screen });
-        await Frames(2);
-        InputSystem.QueueStateEvent(_mouse, new MouseState { position = screen, buttons = 1 });
-        await Frames(2);
-        InputSystem.QueueStateEvent(_mouse, new MouseState { position = screen });
+        // Deliver a complete UI Toolkit pointer gesture together. An injected
+        // InputSystem mouse uses the Editor's Game-view coordinates, not panel pixels.
+        using (var evt = PointerDownEvent.GetPooled(new Event { type = EventType.MouseDown, mousePosition = position, button = 0, clickCount = 1 }))
+        { evt.target = hit; hit.SendEvent(evt); }
+        using (var evt = PointerUpEvent.GetPooled(new Event { type = EventType.MouseUp, mousePosition = position, button = 0, clickCount = 1 }))
+        { evt.target = hit; hit.SendEvent(evt); }
         await Frames(3);
     }
     private static bool Shown(string name) { return _hud.Root.Q(name).resolvedStyle.display != DisplayStyle.None; }
@@ -172,18 +171,18 @@ public static class CheckGameOverRuntime
         _hadBest = PlayerPrefs.HasKey(BestKey); _savedBest = PlayerPrefs.GetInt(BestKey, 0);
         File.WriteAllText(Path.Combine(_output, "saved-best-before.json"), Newtonsoft.Json.JsonConvert.SerializeObject(new { existed = _hadBest, value = _savedBest }));
         var originalKeyboard = Keyboard.current;
-        var originalMouse = Mouse.current;
         var background = InputSystem.settings.backgroundBehavior;
         var editorInput = InputSystem.settings.editorInputBehaviorInPlayMode;
         int originalSize = (int)GameView.GetType().GetProperty("selectedSizeIndex", Flags).GetValue(GameView);
         InputSystem.settings.backgroundBehavior = InputSettings.BackgroundBehavior.IgnoreFocus;
         InputSystem.settings.editorInputBehaviorInPlayMode = InputSettings.EditorInputBehaviorInPlayMode.AllDeviceInputAlwaysGoesToGameView;
         _keyboard = InputSystem.AddDevice<Keyboard>("Game over verification keyboard");
-        _mouse = InputSystem.AddDevice<Mouse>("Game over verification mouse");
         Application.logMessageReceived += Log;
         try
         {
-            Acquire(); Begin(); GameView.Focus(); await Frames(3);
+            if (SceneManager.GetActiveScene().path != KeeperGameScene.ScenePath) { await LoadGame(); }
+            else { Acquire(); Begin(); }
+            GameView.Focus(); await Frames(3);
             await GameKey(Key.Tab);
             Check(_session.Player.UIHidden, "Tab hides the HUD before defeat");
             await End("Топливо кончилось. Маяк погас.");
@@ -214,18 +213,19 @@ public static class CheckGameOverRuntime
             await Click("restart"); _session.RunBegan -= countRun;
             Check(runs == 1 && !_session.GameOver && Cursor.lockState == CursorLockMode.Locked, "Mouse restart fires once after HUD re-enable");
             Begin(); await End("Топливо кончилось. Маяк погас.");
-            await Capture(1920, 1080); await Capture(1280, 720); await Capture(390, 844); await Capture(844, 390);
-            _session.Score = _session.Best = int.MaxValue; _session.Notify(string.Empty); await Task.Delay(150);
-            Resize(390, 844); await Task.Delay(200);
-            Check(_hud.Root.Q<Label>("result-score").text.Replace("\u00a0", "").Replace(" ", "") == int.MaxValue.ToString(), "Large real scores retain every digit");
-            Resize(1280, 720); await Task.Delay(200);
-            _session.Score = 480; _session.Best = 1260; _session.Notify(string.Empty); RestoreBest(); await Task.Delay(100);
+            RestoreBest();
             await Click("result-menu"); await WaitForScene(KeeperMenu.ScenePath);
             Check(Object.FindAnyObjectByType<KeeperMenu>()?.IsOpen == true && !Object.FindAnyObjectByType<BlockoutSession>(), "Menu button loads the separate main-menu scene");
             await LoadGame(); await End("Топливо кончилось. Маяк погас."); RestoreBest();
             await GameKey(Key.Escape); await WaitForScene(KeeperMenu.ScenePath);
             Check(Object.FindAnyObjectByType<KeeperMenu>()?.IsOpen == true, "Escape loads the same main menu");
-            await LoadGame();
+            await LoadGame(); await End("Топливо кончилось. Маяк погас.");
+            // Resolve pointer gestures before changing the Game-view render resolution.
+            await Capture(1920, 1080); await Capture(1280, 720); await Capture(390, 844); await Capture(844, 390);
+            _session.Score = _session.Best = int.MaxValue; _session.Notify(string.Empty); await Task.Delay(150);
+            Resize(390, 844); await Task.Delay(200);
+            Check(_hud.Root.Q<Label>("result-score").text.Replace("\u00a0", "").Replace(" ", "") == int.MaxValue.ToString(), "Large real scores retain every digit");
+            Begin();
         }
         catch (Exception exception) { Errors.Add(exception.ToString()); }
         finally
@@ -233,7 +233,6 @@ public static class CheckGameOverRuntime
             Application.logMessageReceived -= Log;
             InputSystem.QueueStateEvent(_keyboard, new KeyboardState());
             InputSystem.RemoveDevice(_keyboard); originalKeyboard?.MakeCurrent();
-            InputSystem.RemoveDevice(_mouse); originalMouse?.MakeCurrent();
             InputSystem.settings.backgroundBehavior = background;
             InputSystem.settings.editorInputBehaviorInPlayMode = editorInput;
             RestoreBest();
