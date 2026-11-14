@@ -72,3 +72,10 @@ Runtime — `KeeperMenu` и `Assets/Resources/KeeperMenu`.
 Новый логотип `ArtSource/UI/assets/mayak-wordmark-v2.svg` также согласован
 владельцем 14.11.2026 («отлично переноси») и перенесён в Unity-ресурс
 `KeeperMenu/mayak-wordmark.svg`. Использовать этот рисунок, не старое начертание.
+
+Плашка конца игры согласована владельцем 14.11.2026 («Переноси») и перенесена
+в Unity: `KeeperUI/Hud.uxml`, `Hud.uss`, `BlockoutHUD.GameOver.cs`.
+Макет — `ArtSource/UI/index.html?gameover=fuel` и `game-over.css`.
+Повторное согласование HTML не требуется; готовая версия в игре ожидает
+финального визуального просмотра. Счёт, рекорд и причина — реальные данные
+сессии; F1 начинает новый забег, Esc и кнопка меню загружают `MainMenu`.
